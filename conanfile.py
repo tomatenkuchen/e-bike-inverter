@@ -8,17 +8,21 @@ class batterychargerRecipe(ConanFile):
     package_type = "application"
 
     # Optional metadata
-    license = "<Put the package license here>"
-    author = "<Put your name here> <And your email here>"
-    url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of batterycharger package here>"
-    topics = ("<Put some tag here>", "<here>", "<and here>")
+    license = "GPL-2.0"
+    author = "tomatenkuchen"
+    url = "https://github.com/tomatenkuchen/batterycharger"
+    description = "power management device for small PV, batteries and power unit inputs"
+    topics = ("lipo","PV", "power management", "embedded")
 
     # Binary configuration
     settings = "os", "compiler", "build_type", "arch"
 
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "src/*"
+
+    def requirements(self):
+        self.tool_requires("cmake/4.1.0")
+        self.tool_requires("ninja/1.13.1")
 
     def layout(self):
         cmake_layout(self)
@@ -27,11 +31,14 @@ class batterychargerRecipe(ConanFile):
         deps = CMakeDeps(self)
         deps.generate()
         tc = CMakeToolchain(self)
+        tc.cache_variable["CONAN_PROJECT_NAME"] = str(self.name)
+        tc.cache_variable["CONAN_PROJECT_VERSION"] = str(self.version)
+        tc.cache_variable["CONAN_PROJECT_DESCRIPTION"] = str(self.description)
         tc.generate()
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure()
+        cmake.configure(geerator="Ninja")
         cmake.build()
 
     def package(self):

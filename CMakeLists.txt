@@ -1,14 +1,17 @@
-cmake_minimum_required(VERSION 3.15)
-project(batterycharger CXX)
+###############################################################################
+# cmake variables
+cmake_minimum_required(VERSION 4.1)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+###############################################################################
+# project definition
+project(${CONAN_PROJECT_NAME}
+        VERSION ${CONAN_PROJECT_VERSION}
+        DESCRIPTION ${CONAN_PROJECT_DESCRIPTION}
+        LANGUAGES CXX
+)
 
-add_executable(batterycharger src/batterycharger.cpp src/main.cpp)
-
-
-
-install(TARGETS batterycharger DESTINATION "."
-        RUNTIME DESTINATION bin
-        ARCHIVE DESTINATION lib
-        LIBRARY DESTINATION lib
-        )
+###############################################################################
+# embedded executable definition
+add_subdirectories(src)
