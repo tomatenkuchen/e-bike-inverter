@@ -18,4 +18,4 @@ project(${CONAN_PROJECT_NAME}
 
 ###############################################################################
 # embedded executable definition
-add_subdirectories(src)
+add_subdirectory(src)

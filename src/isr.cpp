@@ -1,7 +1,109 @@
+#include "main.h"
+#include <chrono>
 #include <cstdint>
 #include <span>
 
+using namespace std::chrono_literals;
+
+namespace
+{
+
+std::chrono::milliseconds system_time = 0ms;
+
 typedef void (*void_func_ptr)(void);
+
+enum class IsrType
+{
+    reset,
+    nmi,
+    hardfault,
+    memmanage,
+    busfault,
+    usagefault,
+    svc = 10,
+    debugmon,
+    pendsv = 13,
+    systick,
+    wwdg,
+    pvd_pvm,
+    rtc_tamp_lsecss,
+    rtc_wkup,
+    flash,
+    rcc,
+    exti0,
+    exti1,
+    exti2,
+    exti3,
+    exti4,
+    dma1_channel1,
+    dma1_channel2,
+    dma1_channel3,
+    dma1_channel4,
+    dma1_channel5,
+    dma1_channel6,
+    adc1_2_ = 3,
+    usb_hp,
+    usb_lp,
+    fdcan1_it0,
+    fdcan1_it1,
+    exti9_5,
+    tim1_brk_tim15,
+    tim1_up_tim16,
+    tim1_trg_com_tim17,
+    tim1_cc,
+    tim2,
+    tim3,
+    tim4,
+    i2c1_ev,
+    i2c1_er,
+    i2c2_ev,
+    i2c2_er,
+    spi1,
+    spi2,
+    usart1,
+    usart2,
+    usart3,
+    exti15_10,
+    rtc_alarm,
+    usbwakeup,
+    tim8_brk,
+    tim8_up,
+    tim8_trg_com,
+    tim8_cc,
+    lptim1_ = 6,
+    spi3_ = 6,
+    uart4,
+    tim6_dac_ = 6,
+    tim7,
+    dma2_channel1,
+    dma2_channel2,
+    dma2_channel3,
+    dma2_channel4,
+    dma2_channel5,
+    ucpd1 = 7,
+    comp1_2_3,
+    comp4,
+    crs = 9,
+    sai1,
+    fpu = 9,
+    rng = 10,
+    lpuart1,
+    i2c3_ev,
+    i2c3_er,
+    dmamux_ovr,
+    dma2_channel6 = 11,
+    cordic = 11,
+    fma
+};
+
+constexpr uint32_t interrupt_vector_size = 117;
+
+void system_init()
+{
+    SCB->CPACR |= ((3UL << (10 * 2)) | (3UL << (11 * 2))); /* set CP10 and CP11 Full Access */
+
+    // SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
+}
 
 void error_handler()
 {
@@ -11,6 +113,8 @@ void error_handler()
 
 extern "C" void reset_handler()
 {
+    extern int main();
+
     extern void __libc_init_array();
     extern void __libc_fini_array();
 
@@ -38,13 +142,23 @@ extern "C" void reset_handler()
     error_handler();
 }
 
+void systick_handler()
+{
+    system_time += 1ms;
+}
+
+} // namespace
+
 // fill interrupt vector
-constexpr __attribute__((section(.isr_vector))) std::array<void_func_ptr, 100> isr_vector_table = [] {
-    std::array<void_func_ptr, 100> a;
-    a[reset] = reset_handler;
-    a[nmi] = nmi_handler;
-    a[hardfault] = hardfault_handler;
-    a[systick] = systick_handler;
+constexpr __attribute__((section(.isr_vector))) std::array<void_func_ptr, interrupt_vector_size> isr_vector_table = [] {
+    std::array<void_func_ptr, interrupt_vector_size> a;
+
+    // default init all vectors with error handler
+    std::ranges::fill(a, error_handler());
+
+    // add handler to address if needed
+    a[(int)IsrType::reset] = reset_handler;
+    a[(int)IsrType::systick] = systick_handler;
 
     return a;
 }();

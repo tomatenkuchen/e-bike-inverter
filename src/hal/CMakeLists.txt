@@ -1,20 +1,3 @@
-###################################################################################################
-# define cmake behavior
-cmake_minimum_required(VERSION 4.1)
-
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-###################################################################################################
-# Set the project name
-project(${CONAN_PROJECT_NAME}
-    VERSION ${CONAN_PROJECT_VERSION}
-    DESCRIPTION ${CONAN_PROJECT_DESCRIPTION}
-    LANGUAGES CXX
-)
-
-# Create an executable object type
-add_executable(${CMAKE_PROJECT_NAME})
-
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
