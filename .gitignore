@@ -1,2 +1,3 @@
 build/
 CMakePreset.json
+.cache/
