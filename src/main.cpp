@@ -1,12 +1,13 @@
 #include "batterycharger.h"
-#include <vector>
+#include "version.hpp"
 #include <string>
+#include <vector>
 
 int main() {
-    batterycharger();
+  batterycharger();
 
-    std::vector<std::string> vec;
-    vec.push_back("test_package");
+  std::vector<std::string> vec;
+  vec.push_back("test_package");
 
-    batterycharger_print_vector(vec);
+  batterycharger_print_vector(vec);
 }

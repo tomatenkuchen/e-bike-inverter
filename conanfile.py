@@ -20,6 +20,11 @@ class batterychargerRecipe(ConanFile):
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "src/*"
 
+    def set_version(self):
+        git = Git(self, self.recipe_folder)
+        self.version = git.run("describe --tags").split('-')[0]
+        self.hash = git.run("rev_parse HEAD")
+
     def requirements(self):
         self.tool_requires("cmake/4.1.0")
         self.tool_requires("ninja/1.13.1")
@@ -34,6 +39,7 @@ class batterychargerRecipe(ConanFile):
         tc.cache_variable["CONAN_PROJECT_NAME"] = str(self.name)
         tc.cache_variable["CONAN_PROJECT_VERSION"] = str(self.version)
         tc.cache_variable["CONAN_PROJECT_DESCRIPTION"] = str(self.description)
+        tc.cache_variable["CONAN_PROJECT_GIT_HASH"] = str(self.hash)
         tc.generate()
 
     def build(self):
