@@ -87,6 +87,15 @@ add_library(stm32g4-hal STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Src/stm32g4xx_ll_utils.c
 )
 
-target_include_directories(stm32g4-hal PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Inc)
+target_include_directories(stm32g4-hal
+  PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/Inc
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 target_link_libraries(stm32g4-hal PUBLIC cmsis)
+
+target_compile_definitions(stm32g4-hal PRIVATE
+  USE_HAL_DRIVER
+  STM32G431
+)

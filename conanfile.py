@@ -29,6 +29,7 @@ class batterychargerRecipe(ConanFile):
     def requirements(self):
         self.tool_requires("cmake/4.1.0")
         self.tool_requires("ninja/1.13.1")
+        # self.tool_requires("cppcheck/2.18.3")
 
     def layout(self):
         cmake_layout(self)
