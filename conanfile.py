@@ -1,5 +1,6 @@
 from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout, CMakeDeps
+from conan.tools.scm import Git
 
 
 class batterychargerRecipe(ConanFile):
@@ -23,7 +24,7 @@ class batterychargerRecipe(ConanFile):
     def set_version(self):
         git = Git(self, self.recipe_folder)
         self.version = git.run("describe --tags").split('-')[0]
-        self.hash = git.run("rev_parse HEAD")
+        self.hash = git.run("rev-parse HEAD")
 
     def requirements(self):
         self.tool_requires("cmake/4.1.0")
@@ -35,16 +36,16 @@ class batterychargerRecipe(ConanFile):
     def generate(self):
         deps = CMakeDeps(self)
         deps.generate()
-        tc = CMakeToolchain(self)
-        tc.cache_variable["CONAN_PROJECT_NAME"] = str(self.name)
-        tc.cache_variable["CONAN_PROJECT_VERSION"] = str(self.version)
-        tc.cache_variable["CONAN_PROJECT_DESCRIPTION"] = str(self.description)
-        tc.cache_variable["CONAN_PROJECT_GIT_HASH"] = str(self.hash)
+        tc = CMakeToolchain(self, generator="Ninja")
+        tc.cache_variables["CONAN_PROJECT_NAME"] = str(self.name)
+        tc.cache_variables["CONAN_PROJECT_VERSION"] = str(self.version)
+        tc.cache_variables["CONAN_PROJECT_DESCRIPTION"] = str(self.description)
+        tc.cache_variables["CONAN_PROJECT_GIT_HASH"] = str(self.hash)
         tc.generate()
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(geerator="Ninja")
+        cmake.configure()
         cmake.build()
 
     def package(self):
