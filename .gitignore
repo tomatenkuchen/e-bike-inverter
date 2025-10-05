@@ -1,3 +1,4 @@
 build/
-CMakePreset.json
+CMakeUserPresets.json
 .cache/
+
