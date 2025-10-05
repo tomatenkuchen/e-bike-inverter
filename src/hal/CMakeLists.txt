@@ -7,6 +7,11 @@ target_include_directories(cmsis INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/CMSIS/Device/ST/STM32G4xx/Include
 )
 
+target_compile_definitions(cmsis INTERFACE
+  USE_HAL_DRIVER
+  STM32G431xx
+)
+
 ###############################################################################
 # add stm hal
 add_library(stm32g4-hal STATIC
@@ -47,7 +52,3 @@ target_include_directories(stm32g4-hal
 
 target_link_libraries(stm32g4-hal PUBLIC cmsis)
 
-target_compile_definitions(stm32g4-hal PRIVATE
-  USE_HAL_DRIVER
-  STM32G431xx
-)
