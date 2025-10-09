@@ -150,18 +150,19 @@ void systick_handler()
 } // namespace
 
 // fill interrupt vector
-constexpr __attribute__((section(.isr_vector))) std::array<void_func_ptr, interrupt_vector_size> isr_vector_table = [] {
-    std::array<void_func_ptr, interrupt_vector_size> a;
+constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, interrupt_vector_size> isr_vector_table =
+    [] {
+        std::array<void_func_ptr, interrupt_vector_size> a;
 
-    // default init all vectors with error handler
-    std::ranges::fill(a, error_handler());
+        // default init all vectors with error handler
+        std::ranges::fill(a, error_handler());
 
-    // add handler to address if needed
-    a[(int)IsrType::reset] = reset_handler;
-    a[(int)IsrType::systick] = systick_handler;
+        // add handler to address if needed
+        a[(int)IsrType::reset] = reset_handler;
+        a[(int)IsrType::systick] = systick_handler;
 
-    return a;
-}();
+        return a;
+    }();
 
 // stack pointer top
 extern uint32_t _estack;
