@@ -13,21 +13,21 @@ FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 128K
 
 SECTIONS
 {
-  .stack_top_ptr :
+  .stack_top_ptr (READONLY) :
   {
     _stext = .;
     KEEP(.stack_top_ptr)  
   } >FLASH
 
   /* The startup code goes first into FLASH */
-  .isr_vector :
+  .isr_vector (READONLY) :
   {
     KEEP(.isr_vector)
     . = ALIGN(4);
   } >FLASH
 
   /* The program code and other data goes into FLASH */
-  .text :
+  .text (READONLY) :
   {
     . = ALIGN(4);
     *(.text)           /* .text sections (code) */
@@ -44,7 +44,7 @@ SECTIONS
   } >FLASH
 
   /* Constant data goes into FLASH */
-  .rodata :
+  .rodata (READONLY) :
   {
     . = ALIGN(4);
     *(.rodata)         /* .rodata sections (constants, strings, etc.) */

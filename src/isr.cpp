@@ -5,10 +5,10 @@
 
 using namespace std::chrono_literals;
 
+std::chrono::milliseconds system_time = 0ms;
+
 namespace
 {
-
-std::chrono::milliseconds system_time = 0ms;
 
 typedef void (*void_func_ptr)(void);
 
@@ -111,27 +111,27 @@ void error_handler()
         ;
 }
 
+} // namespace
+
+extern void __libc_init_array();
+extern void __libc_fini_array();
+extern int main();
+extern uint32_t _sdata;
+extern uint32_t _edata;
+extern uint32_t _sidata;
+extern uint32_t _sbss;
+extern uint32_t _ebss;
+
 extern "C" void reset_handler()
 {
-    extern int main();
-
-    extern void __libc_init_array();
-    extern void __libc_fini_array();
-
-    extern uint32_t _sdata;
-    extern uint32_t _edata;
-    extern uint32_t _sidata;
-    extern uint32_t _sbss;
-    extern uint32_t _ebss;
-
     std::span<uint32_t> const data_ram(&_sdata, &_edata);
     std::span<uint32_t const> const data_rom(&_sidata, data_ram.size());
-    std::span<uint32_t> bss(&_sbss, &_ebss);
+    std::span<uint32_t> const bss(&_sbss, &_ebss);
 
     system_init();
 
     std::copy(data_rom.begin(), data_rom.end(), data_ram.begin());
-    std::fill(bss.begin(), bss.end(), 0);
+    std::ranges::fill(bss, 0);
 
     __libc_init_array();
 
@@ -147,15 +147,13 @@ void systick_handler()
     system_time += 1ms;
 }
 
-} // namespace
-
 // fill interrupt vector
 constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, interrupt_vector_size> isr_vector_table =
     [] {
         std::array<void_func_ptr, interrupt_vector_size> a;
 
         // default init all vectors with error handler
-        std::ranges::fill(a, error_handler());
+        std::ranges::fill(a, error_handler);
 
         // add handler to address if needed
         a[(int)IsrType::reset] = reset_handler;
@@ -166,4 +164,4 @@ constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, inte
 
 // stack pointer top
 extern uint32_t _estack;
-extern "C" constexpr uint32_t *__attribute((section(".stack_top_ptr"))) stack_top_ptr = &_estack;
+constexpr __attribute__((section(".stack_top_ptr"))) uint32_t *stack_top_ptr = &_estack;

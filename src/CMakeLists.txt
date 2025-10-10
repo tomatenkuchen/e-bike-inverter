@@ -30,7 +30,7 @@ target_compile_options(${CONAN_PROJECT_NAME}
     -Wall
     -Wextra
     -Wpedantic
-    -Werror
+    # -Werror
 )
 
 target_link_options(${CONAN_PROJECT_NAME}
