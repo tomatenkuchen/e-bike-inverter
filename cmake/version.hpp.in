@@ -1,3 +1,9 @@
+/**
+ * @file version.hpp
+ * @brief template for version info on project
+ */
+ 
+
 #pragma once
 
 #include <string_view>
