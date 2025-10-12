@@ -61,8 +61,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define CAN_TERM_Pin GPIO_PIN_14
 #define CAN_TERM_GPIO_Port GPIOC
-#define V_BUS_Pin GPIO_PIN_0
-#define V_BUS_GPIO_Port GPIOA
+#define VBUS_Pin GPIO_PIN_0
+#define VBUS_GPIO_Port GPIOA
 #define BEMF1_Pin GPIO_PIN_4
 #define BEMF1_GPIO_Port GPIOA
 #define BEMF2_Pin GPIO_PIN_4
@@ -71,8 +71,8 @@ void Error_Handler(void);
 #define BEMF3_GPIO_Port GPIOB
 #define POTI_Pin GPIO_PIN_12
 #define POTI_GPIO_Port GPIOB
-#define TEMPERATURE_Pin GPIO_PIN_14
-#define TEMPERATURE_GPIO_Port GPIOB
+#define Temperature_Pin GPIO_PIN_14
+#define Temperature_GPIO_Port GPIOB
 #define STATUS_Pin GPIO_PIN_6
 #define STATUS_GPIO_Port GPIOC
 #define CAN_RX_Pin GPIO_PIN_11
