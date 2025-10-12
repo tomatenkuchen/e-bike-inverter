@@ -6,6 +6,8 @@ outline
 
 ## APIs
 
+## how to compile
+
 ## todos
 
 - [x] find datasheets
