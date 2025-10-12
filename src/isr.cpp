@@ -116,17 +116,17 @@ void error_handler()
 extern "C" void __libc_init_array();
 extern "C" void __libc_fini_array();
 extern int main();
-extern uint32_t _sdata;
-extern uint32_t _edata;
-extern uint32_t _sidata;
-extern uint32_t _sbss;
-extern uint32_t _ebss;
+extern uint8_t _sdata;
+extern uint8_t _edata;
+extern uint8_t _sidata;
+extern uint8_t _sbss;
+extern uint8_t _ebss;
 
 extern "C" void reset_handler()
 {
-    std::span<uint32_t> const data_ram(&_sdata, &_edata);
-    std::span<uint32_t const> const data_rom(&_sidata, data_ram.size());
-    std::span<uint32_t> const bss(&_sbss, &_ebss);
+    std::span const data_ram(&_sdata, &_edata);
+    std::span const data_rom(&_sidata, data_ram.size());
+    std::span const bss(&_sbss, &_ebss);
 
     system_init();
 
