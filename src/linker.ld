@@ -7,22 +7,26 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 
 MEMORY
 {
-RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 32K
-FLASH (rx)     : ORIGIN = 0x8000000,  LENGTH = 128K
+RAM (xrw)  : ORIGIN = 0x20000000, LENGTH = 32K
+FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 128K
 }
 
 SECTIONS
 {
+  _stext = .;
+
   .stack_top_ptr (READONLY) :
   {
-    _stext = .;
-    KEEP(.stack_top_ptr)  
+    . = ALIGN(4);
+    *(.stack_top_ptr) 
+    . = ALIGN(4);
   } >FLASH
 
   /* The startup code goes first into FLASH */
   .isr_vector (READONLY) :
   {
-    KEEP(.isr_vector)
+    . = ALIGN(4);
+    *(.isr_vector)
     . = ALIGN(4);
   } >FLASH
 
@@ -40,8 +44,9 @@ SECTIONS
     KEEP (*(.fini))
 
     . = ALIGN(4);
-    _etext = .;        /* define a global symbols at end of code */
   } >FLASH
+
+  _etext = .;        /* define a global symbols at end of code */
 
   /* Constant data goes into FLASH */
   .rodata (READONLY) :
@@ -149,5 +154,4 @@ SECTIONS
   }
 
 }
-
 

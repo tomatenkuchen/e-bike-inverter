@@ -113,8 +113,8 @@ void error_handler()
 
 } // namespace
 
-extern void __libc_init_array();
-extern void __libc_fini_array();
+extern "C" void __libc_init_array();
+extern "C" void __libc_fini_array();
 extern int main();
 extern uint32_t _sdata;
 extern uint32_t _edata;
@@ -130,8 +130,14 @@ extern "C" void reset_handler()
 
     system_init();
 
-    std::copy(data_rom.begin(), data_rom.end(), data_ram.begin());
-    std::ranges::fill(bss, 0);
+    if (!data_rom.empty())
+    {
+        std::copy(data_rom.begin(), data_rom.end(), data_ram.begin());
+    }
+    if (!bss.empty())
+    {
+        std::ranges::fill(bss, 0);
+    }
 
     __libc_init_array();
 
@@ -164,4 +170,4 @@ constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, inte
 
 // stack pointer top
 extern uint32_t _estack;
-constexpr __attribute__((section(".stack_top_ptr"))) uint32_t *stack_top_ptr = &_estack;
+constexpr static __attribute__((section(".stack_top_ptr"))) uint32_t *stack_top = &_estack;
