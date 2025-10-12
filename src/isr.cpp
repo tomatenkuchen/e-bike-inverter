@@ -122,7 +122,7 @@ extern uint8_t _sidata;
 extern uint8_t _sbss;
 extern uint8_t _ebss;
 
-extern "C" void reset_handler()
+extern "C" [[noreturn]] void reset_handler()
 {
     std::span const data_ram(&_sdata, &_edata);
     std::span const data_rom(&_sidata, data_ram.size());

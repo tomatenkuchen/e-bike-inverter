@@ -7,7 +7,7 @@ add_subdirectory(hal)
 add_executable(${CONAN_PROJECT_NAME}
   main.cpp
   isr.cpp
-  syscalls.c
+  syscalls.cpp
 )
 
 target_link_libraries(${CONAN_PROJECT_NAME}
