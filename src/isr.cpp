@@ -105,7 +105,7 @@ void system_init()
     // SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
 }
 
-void error_handler()
+[[noreturn]] void error_handler()
 {
     while (true)
         ;

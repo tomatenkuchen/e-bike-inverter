@@ -1,6 +1,10 @@
 ###############################################################################
-# target definition
+# hal definition
 add_subdirectory(hal)
+
+###############################################################################
+# bsp definition
+add_subdirectory(bsp)
 
 ###############################################################################
 # target definition
@@ -12,7 +16,7 @@ add_executable(${CONAN_PROJECT_NAME}
 
 target_link_libraries(${CONAN_PROJECT_NAME}
   PRIVATE
-    stm32g4-hal
+    libbsp
 )
 
 target_include_directories(${CONAN_PROJECT_NAME}
