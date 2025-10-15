@@ -6,8 +6,8 @@
 
 uint32_t SystemCoreClock = 16'000'000;
 
-constexpr std::array<uint8_t, 16> AHBPrescTable = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U};
-constexpr std::array<uint8_t, 8> APBPrescTable = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U};
+uint8_t const AHBPrescTable[16] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U};
+uint8_t const APBPrescTable[8] = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U};
 
 /**
  * @brief  Update SystemCoreClock variable according to Clock Register Values.
