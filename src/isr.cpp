@@ -167,7 +167,3 @@ constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, inte
 
         return a;
     }();
-
-// stack pointer top
-extern uint32_t _estack;
-constexpr static __attribute__((section(".stack_top_ptr"))) uint32_t *stack_top = &_estack;

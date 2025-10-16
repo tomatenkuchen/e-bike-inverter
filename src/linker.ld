@@ -1,9 +1,8 @@
 ENTRY(reset_handler)
 
-_estack = ORIGIN(RAM) + LENGTH(RAM);    /* end of RAM */
 /* Generate a link error if heap and stack don't fit into RAM */
-_Min_Heap_Size = 0x200;      /* required amount of heap  */
-_Min_Stack_Size = 0x400; /* required amount of stack */
+_Min_Heap_Size = 0x200;     
+_Min_Stack_Size = 0x400; 
 
 MEMORY
 {
@@ -11,24 +10,24 @@ RAM (xrw)  : ORIGIN = 0x20000000, LENGTH = 32K
 FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 128K
 }
 
+_estack = ORIGIN(RAM) + LENGTH(RAM);    
+
 SECTIONS
 {
   _stext = .;
 
+  /* on arm cortex machines, the first value is always the stack pointer init */
   .stack_top_ptr (READONLY) :
   {
-    . = ALIGN(4);
-    *(.stack_top_ptr) 
-    . = ALIGN(4);
-  } >FLASH
+      LONG(_estack);
+  } > FLASH
 
   /* The startup code goes first into FLASH */
   .isr_vector (READONLY) :
   {
+    KEEP(*(.isr_vector))
     . = ALIGN(4);
-    *(.isr_vector)
-    . = ALIGN(4);
-  } >FLASH
+  } > FLASH
 
   /* The program code and other data goes into FLASH */
   .text (READONLY) :
