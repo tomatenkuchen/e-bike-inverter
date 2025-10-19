@@ -7,6 +7,7 @@
 
 namespace bsp
 {
+
 class Core
 {
   public:
@@ -14,7 +15,10 @@ class Core
 
     ~Core();
 
+    void wait_for_interrupt();
+
   private:
     void clock_config();
 };
+
 } // namespace bsp

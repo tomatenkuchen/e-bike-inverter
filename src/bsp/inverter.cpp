@@ -1,5 +1,7 @@
 #include "inverter.hpp"
 #include "main.h"
+#include <cstdint>
+#include <stdexcept>
 
 namespace bsp
 {
@@ -11,6 +13,7 @@ DMA_HandleTypeDef hdma_adc2;
 CORDIC_HandleTypeDef hcordic;
 FMAC_HandleTypeDef hfmac;
 TIM_HandleTypeDef htim1;
+uint32_t HAL_RCC_ADC12_CLK_ENABLED = 0;
 
 Inverter::Inverter()
 {
@@ -28,6 +31,7 @@ Inverter::~Inverter()
 
 void set_voltage(std::array<float, 3> voltages)
 {
+    // todo
 }
 
 void Inverter::adc_init()
@@ -54,14 +58,14 @@ void Inverter::adc_init()
     hadc1.Init.OversamplingMode = DISABLE;
     if (HAL_ADC_Init(&hadc1) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
     /** Configure the ADC multi-mode */
     multimode.Mode = ADC_MODE_INDEPENDENT;
     if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
     /** Configure Regular Channel */
@@ -73,14 +77,15 @@ void Inverter::adc_init()
     sConfig.Offset = 0;
     if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
+    RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
     PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
     /* Peripheral clock enable */
@@ -98,6 +103,7 @@ void Inverter::adc_init()
     PB12     ------> ADC1_IN11
     PB14     ------> ADC1_IN5
     */
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
     GPIO_InitStruct.Pin = VBUS_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -121,10 +127,11 @@ void Inverter::adc_init()
     hdma_adc1.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_adc1) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
-    __HAL_LINKDMA(hadc, DMA_Handle, hdma_adc1);
+    hadc1.DMA_Handle = &hdma_adc1;
+    hdma_adc1.Parent = &hadc1;
 
     /* ADC1 interrupt Init */
     HAL_NVIC_SetPriority(ADC1_2_IRQn, 0, 0);
@@ -156,7 +163,7 @@ void Inverter::adc2_init()
     hadc2.Init.OversamplingMode = DISABLE;
     if (HAL_ADC_Init(&hadc2) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
     /** Configure Regular Channel */
@@ -168,7 +175,7 @@ void Inverter::adc2_init()
     sConfig.Offset = 0;
     if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
     /* USER CODE BEGIN ADC2_MspInit 0 */
@@ -177,11 +184,12 @@ void Inverter::adc2_init()
 
     /** Initializes the peripherals clocks
      */
+    RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
     PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
     /* Peripheral clock enable */
@@ -197,6 +205,7 @@ void Inverter::adc2_init()
     PA4     ------> ADC2_IN17
     PC4     ------> ADC2_IN5
     */
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
     GPIO_InitStruct.Pin = BEMF1_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -220,10 +229,11 @@ void Inverter::adc2_init()
     hdma_adc2.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_adc2) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
-    __HAL_LINKDMA(hadc, DMA_Handle, hdma_adc2);
+    hadc2.DMA_Handle = &hdma_adc2;
+    hdma_adc2.Parent = &hadc2;
 
     /* ADC2 interrupt Init */
     HAL_NVIC_SetPriority(ADC1_2_IRQn, 0, 0);
@@ -233,14 +243,14 @@ void Inverter::adc2_init()
     /* USER CODE END ADC2_MspInit 1 */
 }
 
-void Inverter::cortic_init()
+void Inverter::cordic_init()
 {
     __HAL_RCC_CORDIC_CLK_ENABLE();
 
     hcordic.Instance = CORDIC;
     if (HAL_CORDIC_Init(&hcordic) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 }
 
@@ -251,7 +261,7 @@ void Inverter::fmac_init()
     hfmac.Instance = FMAC;
     if (HAL_FMAC_Init(&hfmac) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 }
 
@@ -272,23 +282,23 @@ void Inverter::tim1_init()
     htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
     if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
     sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
     if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
     if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
     sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
     sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
     sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
     if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
     sConfigOC.OCMode = TIM_OCMODE_PWM1;
     sConfigOC.Pulse = 0;
@@ -299,15 +309,15 @@ void Inverter::tim1_init()
     sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
     sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
     sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
@@ -324,7 +334,7 @@ void Inverter::tim1_init()
     sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
     if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
     {
-        Error_Handler();
+        throw std::runtime_error("initialization failed");
     }
 
     HAL_TIM_MspPostInit(&htim1);
@@ -332,7 +342,6 @@ void Inverter::tim1_init()
 
 void Inverter::gpio_init()
 {
-    GPIO_InitTypeDef GPIO_InitStruct = {0};
 
     /* GPIO Ports Clock Enable */
     __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -344,6 +353,7 @@ void Inverter::gpio_init()
     HAL_GPIO_WritePin(GPIO_BEMF_GPIO_Port, GPIO_BEMF_Pin, GPIO_PIN_RESET);
 
     /*Configure GPIO pins : PA1 PA3 PA5 PA7 */
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
     GPIO_InitStruct.Pin = GPIO_PIN_1 | GPIO_PIN_3 | GPIO_PIN_5 | GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
