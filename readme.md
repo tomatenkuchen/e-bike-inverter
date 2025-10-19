@@ -8,8 +8,10 @@ outline
 
 ## how to compile
 
-this project is done using conan package manager for ease of use. embedded projects in particular suffer from a highly specialized use of tools that are
-mostly scattered in the web, hard to configure, and platfrom specific. conan helped me to fix at least a little of this embedded worlds dilemma.
+this project is done using conan package manager for ease of use.
+embedded projects in particular suffer from a highly specialized use of tools
+that are mostly scattered in the web, hard to configure, and platfrom specific.
+conan helped me to fix at least a little of this embedded worlds dilemma.
 this is how you can setup your build:
 
 ```bash

@@ -1,0 +1,12 @@
+[[language]]
+name = "cpp"
+
+[language.debugger]
+name = "gdb"
+command = "gdb"
+transport = "stdio"
+
+[[language.debugger.templates]]
+name = "remote"
+request = "launch"
+args = { remote = "target remote localhost:61234" }

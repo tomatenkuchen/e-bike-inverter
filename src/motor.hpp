@@ -12,5 +12,4 @@ class Motor{
 	Motor();
 	~Motor();
 	private:
-	
 };
