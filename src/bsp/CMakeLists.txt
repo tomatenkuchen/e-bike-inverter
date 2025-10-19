@@ -2,6 +2,14 @@ add_library(libbsp
   STATIC
     ${CMAKE_CURRENT_SOURCE_DIR}/core.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/core.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/hal-sensors.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/hal-sensors.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/can-interface.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/can-interface.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/uart-interface.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/uart-interface.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/inverter.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/inverter.cpp
 )
 
 target_link_libraries(libbsp

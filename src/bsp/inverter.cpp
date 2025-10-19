@@ -26,6 +26,10 @@ Inverter::~Inverter()
 {
 }
 
+void set_voltage(std::array<float, 3> voltages)
+{
+}
+
 void Inverter::adc_init()
 {
     ADC_MultiModeTypeDef multimode = {0};

@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <array>
+
 namespace bsp
 {
 
@@ -13,6 +15,8 @@ class Inverter
   public:
     Inverter();
     ~Inverter();
+
+    void set_voltage(std::array<float, 3> voltages);
 
   private:
     void adc_init();

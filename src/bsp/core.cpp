@@ -124,6 +124,11 @@ Core::~Core()
     __HAL_RCC_AHB3_RELEASE_RESET();
 }
 
+void Core::wait_for_interrupt()
+{
+    __WFI();
+}
+
 void Core::clock_config()
 {
     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
