@@ -8,6 +8,8 @@
 #include "mp-units/systems/si.h"
 #include <array>
 
+using namespace mp_units;
+
 namespace bsp
 {
 
