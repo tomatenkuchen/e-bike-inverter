@@ -55,11 +55,11 @@ class batterychargerRecipe(ConanFile):
     def build(self):
         cmake = CMake(self)
         cmake.configure()
-        cmake.build()
-
         # copy compile commands file to a location that clangd can find it
         build_path = Path(self.build_folder)
         copy(self, "compile_commands.json", build_path, build_path / "..")
+
+        cmake.build()
 
     def package(self):
         cmake = CMake(self)

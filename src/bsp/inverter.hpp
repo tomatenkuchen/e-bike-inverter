@@ -5,6 +5,7 @@
 
 #pragma once
 
+#include "mp-units/systems/si.h"
 #include <array>
 
 namespace bsp
