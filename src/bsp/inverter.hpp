@@ -27,12 +27,6 @@ class Inverter
     void interrupt_handler();
 
   private:
-    void adc_init();
-    void adc2_init();
-    void cordic_init();
-    void fmac_init();
-    void tim1_init();
-    void gpio_init();
 };
 
 } // namespace bsp

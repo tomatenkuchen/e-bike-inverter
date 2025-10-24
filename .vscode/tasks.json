@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "config debug",
+			"command": "conan",
+			"args": ["build", ".", "-pr=stm32g4", "-s","build_type=Debug", "-b=missing"],
+			"problemMatcher": ["$gcc"],
+			"detail": "conan debug build command",
+			"group": {
+				"kind": "build",
+				"isDefault": false 
+			}
+		},
+		{
+			"type": "cppbuild",
+			"label": "config release",
+			"command": "conan",
+			"args": ["build", ".", "-pr=stm32g4", "-s","build_type=MinSizeRel", "-b=missing"],
+			"problemMatcher": ["$gcc"],
+			"detail": "conan debug build command",
+			"group": {
+				"kind": "build",
+				"isDefault": false 
+			},
+		},
+		{
+			"type": "cppbuild",
+			"label": "build debug",
+			"command": "cmake",
+			"args": ["--build", "build/Debug"],
+			"problemMatcher": ["$gcc"],
+			"detail": "conan debug build command",
+			"group": {
+				"kind": "build",
+				"isDefault": true 
+			},
+		}
+	]
+}

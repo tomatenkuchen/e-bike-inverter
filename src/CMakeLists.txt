@@ -42,18 +42,25 @@ target_link_options(${CONAN_PROJECT_NAME}
     -T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld
 )
 
-add_custom_command(
-  TARGET ${CONAN_PROJECT_NAME} POST_BUILD
+add_custom_target(${CONAN_PROJECT_NAME}.hex ALL 
   COMMAND ${CMAKE_OBJCOPY} -O ihex
             ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}
             ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.hex
 
+)
+add_dependencies(${CONAN_PROJECT_NAME}.hex ${CONAN_PROJECT_NAME})
+
+add_custom_target(${CONAN_PROJECT_NAME}.bin ALL 
   COMMAND ${CMAKE_OBJCOPY} -O binary
             ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}
             ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.bin
+)
+add_dependencies(${CONAN_PROJECT_NAME}.bin ${CONAN_PROJECT_NAME})
 
+add_custom_target(${CONAN_PROJECT_NAME}.readelf ALL 
   COMMAND ${CMAKE_READELF} -aC
             ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}
             > ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.readelf
 )
+add_dependencies(${CONAN_PROJECT_NAME}.readelf ${CONAN_PROJECT_NAME})
 

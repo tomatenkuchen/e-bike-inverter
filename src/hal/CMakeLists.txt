@@ -42,6 +42,10 @@ add_library(stm32g4-hal STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
+
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/main.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/stm32g4xx_hal_msp.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/system_stm32g4xx.c
 )
 
 target_include_directories(stm32g4-hal

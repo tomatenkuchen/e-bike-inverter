@@ -1,9 +1,10 @@
 build/
 CMakeUserPresets.json
 .cache/
-src/hal/Drivers/.mxproject
-src/hal/Drivers/CMakeLists.txt
-src/hal/Drivers/CMakePresets.json
-src/hal/Drivers/STM32G431XX_FLASH.ld
-src/hal/Drivers/cmake/
-src/hal/Drivers/startup_stm32g431xx.s
+**/Drivers/.mxproject
+**/Drivers/CMakeLists.txt
+**/Drivers/CMakePresets.json
+**/Drivers/STM32G431XX_FLASH.ld
+**/Drivers/cmake/
+**/Drivers/startup_stm32g431xx.s
+.vscode/settings.json

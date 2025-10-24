@@ -41,31 +41,40 @@
 
 /* Private variables ---------------------------------------------------------*/
 
+ADC_HandleTypeDef hadc1;
+ADC_HandleTypeDef hadc2;
+CORDIC_HandleTypeDef hcordic;
 CRC_HandleTypeDef hcrc;
+DMA_HandleTypeDef hdma_adc1;
+DMA_HandleTypeDef hdma_adc2;
 FDCAN_HandleTypeDef hfdcan1;
+FMAC_HandleTypeDef hfmac;
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim8;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
+#if 0
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
-static void MX_ADC1_Init(void);
-static void MX_ADC2_Init(void);
-static void MX_CORDIC_Init(void);
-static void MX_CRC_Init(void);
-static void MX_FDCAN1_Init(void);
-static void MX_FMAC_Init(void);
-static void MX_OPAMP1_Init(void);
-static void MX_OPAMP2_Init(void);
-static void MX_OPAMP3_Init(void);
-static void MX_TIM1_Init(void);
-static void MX_TIM8_Init(void);
-static void MX_USART2_UART_Init(void);
+ void MX_GPIO_Init(void);
+ void MX_DMA_Init(void);
+ void MX_ADC1_Init(void);
+ void MX_ADC2_Init(void);
+ void MX_CORDIC_Init(void);
+ void MX_CRC_Init(void);
+ void MX_FDCAN1_Init(void);
+ void MX_FMAC_Init(void);
+ void MX_OPAMP1_Init(void);
+ void MX_OPAMP2_Init(void);
+ void MX_OPAMP3_Init(void);
+ void MX_TIM1_Init(void);
+ void MX_TIM8_Init(void);
+ void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -129,6 +138,9 @@ int main(void)
 
         /* USER CODE BEGIN 3 */
     }
+#endif
+static void dummy()
+{
     /* USER CODE END 3 */
 }
 
@@ -182,7 +194,7 @@ void SystemClock_Config(void)
  * @param None
  * @retval None
  */
-static void MX_ADC1_Init(void)
+void MX_ADC1_Init(void)
 {
 
     /* USER CODE BEGIN ADC1_Init 0 */
@@ -249,7 +261,7 @@ static void MX_ADC1_Init(void)
  * @param None
  * @retval None
  */
-static void MX_ADC2_Init(void)
+void MX_ADC2_Init(void)
 {
 
     /* USER CODE BEGIN ADC2_Init 0 */
@@ -307,7 +319,7 @@ static void MX_ADC2_Init(void)
  * @param None
  * @retval None
  */
-static void MX_CORDIC_Init(void)
+void MX_CORDIC_Init(void)
 {
 
     /* USER CODE BEGIN CORDIC_Init 0 */
@@ -332,7 +344,7 @@ static void MX_CORDIC_Init(void)
  * @param None
  * @retval None
  */
-static void MX_CRC_Init(void)
+void MX_CRC_Init(void)
 {
 
     /* USER CODE BEGIN CRC_Init 0 */
@@ -362,7 +374,7 @@ static void MX_CRC_Init(void)
  * @param None
  * @retval None
  */
-static void MX_FDCAN1_Init(void)
+void MX_FDCAN1_Init(void)
 {
 
     /* USER CODE BEGIN FDCAN1_Init 0 */
@@ -404,7 +416,7 @@ static void MX_FDCAN1_Init(void)
  * @param None
  * @retval None
  */
-static void MX_FMAC_Init(void)
+void MX_FMAC_Init(void)
 {
 
     /* USER CODE BEGIN FMAC_Init 0 */
@@ -429,7 +441,7 @@ static void MX_FMAC_Init(void)
  * @param None
  * @retval None
  */
-static void MX_OPAMP1_Init(void)
+void MX_OPAMP1_Init(void)
 {
 
     /* USER CODE BEGIN OPAMP1_Init 0 */
@@ -449,7 +461,7 @@ static void MX_OPAMP1_Init(void)
  * @param None
  * @retval None
  */
-static void MX_OPAMP2_Init(void)
+void MX_OPAMP2_Init(void)
 {
 
     /* USER CODE BEGIN OPAMP2_Init 0 */
@@ -469,7 +481,7 @@ static void MX_OPAMP2_Init(void)
  * @param None
  * @retval None
  */
-static void MX_OPAMP3_Init(void)
+void MX_OPAMP3_Init(void)
 {
 
     /* USER CODE BEGIN OPAMP3_Init 0 */
@@ -489,7 +501,7 @@ static void MX_OPAMP3_Init(void)
  * @param None
  * @retval None
  */
-static void MX_TIM1_Init(void)
+void MX_TIM1_Init(void)
 {
 
     /* USER CODE BEGIN TIM1_Init 0 */
@@ -578,7 +590,7 @@ static void MX_TIM1_Init(void)
  * @param None
  * @retval None
  */
-static void MX_TIM8_Init(void)
+void MX_TIM8_Init(void)
 {
 
     /* USER CODE BEGIN TIM8_Init 0 */
@@ -637,7 +649,7 @@ static void MX_TIM8_Init(void)
  * @param None
  * @retval None
  */
-static void MX_USART2_UART_Init(void)
+void MX_USART2_UART_Init(void)
 {
 
     /* USER CODE BEGIN USART2_Init 0 */
@@ -682,7 +694,7 @@ static void MX_USART2_UART_Init(void)
 /**
  * Enable DMA controller clock
  */
-static void MX_DMA_Init(void)
+void MX_DMA_Init(void)
 {
 
     /* DMA controller clock enable */
@@ -703,7 +715,7 @@ static void MX_DMA_Init(void)
  * @param None
  * @retval None
  */
-static void MX_GPIO_Init(void)
+void MX_GPIO_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
     /* USER CODE BEGIN MX_GPIO_Init_1 */

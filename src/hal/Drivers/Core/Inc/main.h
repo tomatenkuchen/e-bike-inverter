@@ -56,6 +56,22 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
+void SystemClock_Config(void);
+void MX_GPIO_Init(void);
+void MX_DMA_Init(void);
+void MX_ADC1_Init(void);
+void MX_ADC2_Init(void);
+void MX_CORDIC_Init(void);
+void MX_CRC_Init(void);
+void MX_FDCAN1_Init(void);
+void MX_FMAC_Init(void);
+void MX_OPAMP1_Init(void);
+void MX_OPAMP2_Init(void);
+void MX_OPAMP3_Init(void);
+void MX_TIM1_Init(void);
+void MX_TIM8_Init(void);
+void MX_USART2_UART_Init(void);
+
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
