@@ -17,7 +17,6 @@ add_executable(${CONAN_PROJECT_NAME}
 target_link_libraries(${CONAN_PROJECT_NAME}
   PRIVATE
     libbsp
-    mp-units::mp-units
 )
 
 target_include_directories(${CONAN_PROJECT_NAME}

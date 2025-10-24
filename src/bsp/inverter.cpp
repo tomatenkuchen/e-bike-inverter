@@ -1,7 +1,11 @@
 #include "inverter.hpp"
 #include "main.h"
+#include "mp-units/systems/si.h"
 #include <cstdint>
+#include <mp-units/systems/si/units.h>
 #include <stdexcept>
+
+using namespace mp_units;
 
 namespace bsp
 {
@@ -29,9 +33,16 @@ Inverter::~Inverter()
 {
 }
 
-void set_voltage(std::array<float, 3> voltages)
+void set_voltage(std::array<quantity<si::volt, float>, 3> voltages)
 {
-    // todo
+}
+
+std::array<quantity<si::ampere, float>, 3> get_currents()
+{
+}
+
+void interrupt_handler()
+{
 }
 
 void Inverter::adc_init()
@@ -136,9 +147,6 @@ void Inverter::adc_init()
     /* ADC1 interrupt Init */
     HAL_NVIC_SetPriority(ADC1_2_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
-    /* USER CODE BEGIN ADC1_MspInit 1 */
-
-    /* USER CODE END ADC1_MspInit 1 */
 }
 
 void Inverter::adc2_init()

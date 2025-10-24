@@ -9,6 +9,14 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 configure_file(${CMAKE_SOURCE_DIR}/cmake/version.hpp.in ${CMAKE_BINARY_DIR}/version.hpp)
 
 ###############################################################################
+# project definition
+project(${CONAN_PROJECT_NAME}
+        VERSION ${CONAN_PROJECT_VERSION}
+        DESCRIPTION ${CONAN_PROJECT_DESCRIPTION}
+        LANGUAGES C CXX
+)
+
+###############################################################################
 # find dependencies
 
 # compiler suite
@@ -29,14 +37,6 @@ find_package(mp-units REQUIRED)
 #       "--enable=warning,style"
 #       "-cppcheck-build-dir=${CMAKE_BINARY_DIR}"
 # )
-
-###############################################################################
-# project definition
-project(${CONAN_PROJECT_NAME}
-        VERSION ${CONAN_PROJECT_VERSION}
-        DESCRIPTION ${CONAN_PROJECT_DESCRIPTION}
-        LANGUAGES C CXX
-)
 
 ###############################################################################
 # embedded executable definition

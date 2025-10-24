@@ -23,3 +23,5 @@ target_include_directories(libbsp
 )
 
 target_compile_features(libbsp PRIVATE cxx_std_23)
+
+target_link_libraries(libbsp PUBLIC mp-units::mp-units)

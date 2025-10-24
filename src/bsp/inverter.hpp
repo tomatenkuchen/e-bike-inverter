@@ -5,8 +5,9 @@
 
 #pragma once
 
-#include "mp-units/systems/si.h"
 #include <array>
+#include <mp-units/systems/si.h>
+#include <mp-units/systems/si/units.h>
 
 using namespace mp_units;
 
@@ -19,7 +20,11 @@ class Inverter
     Inverter();
     ~Inverter();
 
-    void set_voltage(std::array<float, 3> voltages);
+    void set_voltage(std::array<quantity<si::volt, float>, 3> voltages);
+
+    std::array<quantity<si::ampere, float>, 3> get_currents();
+
+    void interrupt_handler();
 
   private:
     void adc_init();
