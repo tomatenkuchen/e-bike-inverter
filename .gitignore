@@ -7,4 +7,8 @@ CMakeUserPresets.json
 **/Drivers/STM32G431XX_FLASH.ld
 **/Drivers/cmake/
 **/Drivers/startup_stm32g431xx.s
+**/Drivers/Core/Src/syscalls.c
+**/Drivers/Core/Src/sysmem.c
+**/Drivers/Core/Src/stm32g4xx_it.c
+**/Drivers/Core/Inc/stm32g4xx_it.h
 .vscode/settings.json

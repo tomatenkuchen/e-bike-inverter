@@ -34,6 +34,7 @@ target_compile_options(${CONAN_PROJECT_NAME}
     -Wall
     -Wextra
     -Wpedantic
+    -Og
     # -Werror
 )
 
@@ -63,4 +64,3 @@ add_custom_target(${CONAN_PROJECT_NAME}.readelf ALL
             > ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.readelf
 )
 add_dependencies(${CONAN_PROJECT_NAME}.readelf ${CONAN_PROJECT_NAME})
-

@@ -41,3 +41,6 @@ find_package(mp-units REQUIRED)
 ###############################################################################
 # embedded executable definition
 add_subdirectory(src)
+
+###############################################################################
+# add flash tools 

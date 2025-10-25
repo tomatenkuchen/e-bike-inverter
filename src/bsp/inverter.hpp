@@ -18,6 +18,7 @@ class Inverter
 {
   public:
     Inverter();
+
     ~Inverter();
 
     void set_voltage(std::array<quantity<si::volt, float>, 3> voltages);

@@ -93,6 +93,8 @@ void MX_USART2_UART_Init(void);
 #define STATUS_GPIO_Port GPIOC
 #define CAN_RX_Pin GPIO_PIN_11
 #define CAN_RX_GPIO_Port GPIOA
+#define power_on_Pin GPIO_PIN_15
+#define power_on_GPIO_Port GPIOA
 #define BUTTON_Pin GPIO_PIN_10
 #define BUTTON_GPIO_Port GPIOC
 #define CAN_SHDN_Pin GPIO_PIN_11

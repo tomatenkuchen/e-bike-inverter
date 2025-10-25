@@ -3,13 +3,12 @@
  * @brief driver for hal motor position input
  */
 
- namespace bsp{
+namespace bsp
+{
 
-class HalSensor
+class HallSensor
 {
   public:
-    HalSensor()
-    {
-    }
+    HallSensor();
 };
- }
+} // namespace bsp

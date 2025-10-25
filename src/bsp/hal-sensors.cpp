@@ -1,5 +1,10 @@
 #include "hal-sensors.hpp"
 
-namespace bsp{
+namespace bsp
+{
 
+HallSensor::HallSensor()
+{
 }
+
+} // namespace bsp

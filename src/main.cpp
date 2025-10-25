@@ -8,12 +8,13 @@ int main()
 {
     // initialize cpu
     bsp::Core core;
+
     // initialize inverter
     bsp::Inverter inverter;
 
     while (true)
     {
-        core.wait_for_interrupt();
+        // core.wait_for_interrupt();
     }
 
     return 0;
