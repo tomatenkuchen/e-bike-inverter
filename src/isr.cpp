@@ -1,4 +1,6 @@
 #include "main.h"
+#include "main.hpp"
+#include "stm32g4xx_hal_tim.h"
 #include <chrono>
 #include <cstdint>
 #include <span>
@@ -6,7 +8,6 @@
 using namespace std::chrono_literals;
 
 std::chrono::milliseconds system_time = 0ms;
-
 
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
@@ -167,18 +168,29 @@ void systick_handler()
     HAL_IncTick();
 }
 
-void dma1_ch1_handler(){
+void dma1_ch1_handler()
+{
     HAL_DMA_IRQHandler(&hdma_adc1);
 }
 
-void dma1_ch2_handler(){
+void dma1_ch2_handler()
+{
     HAL_DMA_IRQHandler(&hdma_adc2);
 }
 
-void adc_handler(){
-  HAL_ADC_IRQHandler(&hadc1);
-  HAL_ADC_IRQHandler(&hadc2);
-   }
+void adc_handler()
+{
+    HAL_ADC_IRQHandler(&hadc1);
+    HAL_ADC_IRQHandler(&hadc2);
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    if (htim == &htim1)
+    {
+        get_bsp().inverter->interrupt_handler();
+    }
+}
 
 // fill interrupt vector
 constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, interrupt_vector_size> isr_vector_table =

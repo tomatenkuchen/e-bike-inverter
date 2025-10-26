@@ -28,6 +28,7 @@ class Inverter
     void interrupt_handler();
 
   private:
+    void measure_inputs();
 };
 
 } // namespace bsp

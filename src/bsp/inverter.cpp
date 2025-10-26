@@ -35,15 +35,28 @@ Inverter::~Inverter()
     HAL_GPIO_WritePin(power_on_GPIO_Port, power_on_Pin, GPIO_PIN_RESET);
 }
 
-void set_voltage(std::array<quantity<si::volt, float>, 3> voltages)
+void Inverter::set_voltage(std::array<quantity<si::volt, float>, 3> voltages)
 {
 }
 
-std::array<quantity<si::ampere, float>, 3> get_currents()
+std::array<quantity<si::ampere, float>, 3> Inverter::get_currents()
 {
 }
 
-void interrupt_handler()
+void Inverter::interrupt_handler()
+{
+    // measure current states
+    //
+    // get new set point
+    //
+    // speed control
+    //
+    // current control
+    //
+    // end of control loop
+}
+
+void Inverter::measure_inputs()
 {
 }
 
