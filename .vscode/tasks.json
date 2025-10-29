@@ -5,37 +5,76 @@
 			"type": "cppbuild",
 			"label": "config debug",
 			"command": "conan",
-			"args": ["build", ".", "-pr=stm32g4", "-s","build_type=Debug", "-b=missing"],
-			"problemMatcher": ["$gcc"],
+			"args": [
+				"build",
+				".",
+				"-pr=stm32g4",
+				"-s",
+				"build_type=Debug",
+				"-b=missing"
+			],
+			"problemMatcher": [
+				"$gcc"
+			],
 			"detail": "conan debug build command",
 			"group": {
 				"kind": "build",
-				"isDefault": false 
+				"isDefault": false
 			}
 		},
 		{
 			"type": "cppbuild",
 			"label": "config release",
 			"command": "conan",
-			"args": ["build", ".", "-pr=stm32g4", "-s","build_type=MinSizeRel", "-b=missing"],
-			"problemMatcher": ["$gcc"],
+			"args": [
+				"build",
+				".",
+				"-pr=stm32g4",
+				"-s",
+				"build_type=MinSizeRel",
+				"-b=missing"
+			],
+			"problemMatcher": [
+				"$gcc"
+			],
 			"detail": "conan debug build command",
 			"group": {
 				"kind": "build",
-				"isDefault": false 
+				"isDefault": false
 			},
 		},
 		{
 			"type": "cppbuild",
 			"label": "build debug",
 			"command": "cmake",
-			"args": ["--build", "build/Debug"],
-			"problemMatcher": ["$gcc"],
+			"args": [
+				"--build",
+				"build/Debug"
+			],
+			"problemMatcher": [
+				"$gcc"
+			],
 			"detail": "conan debug build command",
 			"group": {
 				"kind": "build",
-				"isDefault": true 
+				"isDefault": true
 			},
+		},
+		{
+			"type": "cppbuild",
+			"label": "flash-debug",
+			"command": "STM32_Programmer_CLI",
+			"args": [
+				"-c",
+				"port=SWD",
+				"-w",
+				"${workspaceFolder}/build/Debug/src/batterycharger.hex"
+			],
+			"detail": "flash binary to controller",
+			"group": {
+				"kind": "build",
+				"isDefault": false,
+			}
 		}
 	]
 }
