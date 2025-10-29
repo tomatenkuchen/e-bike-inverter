@@ -75,6 +75,22 @@
 				"kind": "build",
 				"isDefault": false,
 			}
-		}
+		},
+		{
+			"type": "cppbuild",
+			"label": "gdbserver",
+			"command": "ST-LINK_gdbserver",
+			"args": [
+				"-cp",
+				"/opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.2.200.202503041107/tools/bin/",
+				"-d",
+				"-v",
+			],
+			"detail": "open gdb server for debugging",
+			"group": {
+				"kind": "build",
+				"isDefault": false,
+			}
+		},
 	]
 }
