@@ -23,7 +23,7 @@ class HallSensor
      * inputs
      * @param system_time system time at interrupt
      */
-    void interrupt_handler(si::second system_time);
+    void interrupt_handler(quantity<si::second, float> system_time);
 
     /**
      * @brief Get the motor state
@@ -31,7 +31,7 @@ class HallSensor
      * @param system_time  system time to the time of state polling
      * @return MotorState motor states
      */
-    MotorState get_motor_state(si::second system_time);
+    MotorState get_motor_state(quantity<si::second, float> system_time);
 
   private:
     struct Point
@@ -42,6 +42,8 @@ class HallSensor
 
     Point latest;
     Point old;
+
+    MotorState motor;
 
     uint8_t get_sector_from_gpios();
 };

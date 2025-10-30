@@ -30,7 +30,7 @@ inline constexpr struct radacceleration final : named_unit<"", mag<1> * radspeed
 
 struct MotorState
 {
-    angular::unit_symbols::rad position;
+    quantity<angular::unit_symbols::rad, float> position;
     radspeed speed;
     radacceleration acceleration;
 };

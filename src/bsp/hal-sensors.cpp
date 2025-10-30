@@ -1,5 +1,6 @@
 #include "hal-sensors.hpp"
 #include "main.h"
+#include "motor.hpp"
 #include "stm32g4xx_hal_gpio.h"
 #include <mp-units/systems/angular.h>
 #include <mp-units/systems/angular/units.h>
@@ -20,7 +21,7 @@ HallSensor::HallSensor()
 {
 }
 
-void HallSensor::interrupt_handler(si::second system_time)
+void HallSensor::interrupt_handler(quantity<si::second, float> system_time)
 {
     old = latest;
     latest = Point{
@@ -30,10 +31,29 @@ void HallSensor::interrupt_handler(si::second system_time)
 
     auto const delta_t = latest.timestamp - old.timestamp;
     auto const speed = sector_size / delta_t;
+
+    MotorState new_motor{
+        .position = sector_size * latest,
+        .speed = speed,
+        .acceleration = (speed - motor.speed) / delta_t,
+    };
+
+    motor = new_motor;
 }
 
-HallSensor::MotorState HallSensor::get_motor_state(si::second system_time)
+MotorState HallSensor::get_motor_state(quantity<si::second, float> system_time)
 {
+    auto const delta_t = system_time - latest.timestamp;
+    auto const new_speed = motor.acceleration * delta_t;
+    auto const new_pos = new_speed * delta_t;
+
+    MotorState new_motor = {
+        .position = new_pos,
+        .speed = new_speed,
+        .acceleration = motor.acceleration,
+    };
+
+    return new_motor;
 }
 
 uint8_t HallSensor::get_sector_from_gpios()
