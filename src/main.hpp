@@ -7,7 +7,7 @@
 
 #include "can-interface.hpp"
 #include "core.hpp"
-#include "hal-sensors.hpp"
+#include "hall-sensors.hpp"
 #include "inverter.hpp"
 #include "uart-interface.hpp"
 

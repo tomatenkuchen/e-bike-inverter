@@ -1,4 +1,4 @@
-#include "hal-sensors.hpp"
+#include "hall-sensors.hpp"
 #include "main.h"
 #include "motor.hpp"
 #include "stm32g4xx_hal_gpio.h"
