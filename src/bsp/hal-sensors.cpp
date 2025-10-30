@@ -2,10 +2,11 @@
 #include "main.h"
 #include "stm32g4xx_hal_gpio.h"
 #include <mp-units/systems/angular.h>
+#include <mp-units/systems/angular/units.h>
 #include <mp-units/systems/si/units.h>
 #include <numbers>
 
-using units = mp_units::angular::unit_symbols;
+namespace units = mp_units::angular::unit_symbols;
 using namespace mp_units;
 
 namespace bsp
@@ -15,7 +16,7 @@ constexpr auto sector_size = std::numbers::pi / 3 * units::rad;
 
 HallSensor::HallSensor()
     : latest{.sector = get_sector_from_gpios(), .timestamp = 0 * si::second},
-      old{.sector = get_sector_from_gpios(), .timestamp = 0 * si::second},
+      old{.sector = get_sector_from_gpios(), .timestamp = 0 * si::second}
 {
 }
 
@@ -26,6 +27,9 @@ void HallSensor::interrupt_handler(si::second system_time)
         .sector = get_sector_from_gpios(),
         .timestamp = system_time,
     };
+
+    auto const delta_t = latest.timestamp - old.timestamp;
+    auto const speed = sector_size / delta_t;
 }
 
 HallSensor::MotorState HallSensor::get_motor_state(si::second system_time)

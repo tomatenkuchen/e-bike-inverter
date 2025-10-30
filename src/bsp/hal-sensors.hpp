@@ -4,6 +4,7 @@
  */
 #pragma once
 
+#include "motor.hpp"
 #include <cstdint>
 #include <mp-units/systems/si/units.h>
 
@@ -15,15 +16,6 @@ namespace bsp
 class HallSensor
 {
   public:
-    using radspeed = si::radian / si::second;
-    using radacceleration = radspeed / si::second;
-    struct MotorState
-    {
-        si::radian position;
-        radspeed speed;
-        radacceleration acceleration;
-    };
-
     HallSensor();
 
     /**
