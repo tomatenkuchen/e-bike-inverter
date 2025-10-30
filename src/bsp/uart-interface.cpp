@@ -1,5 +1,8 @@
 #include "uart-interface.hpp"
 #include "main.h"
+#include "stm32g4xx_hal_uart.h"
+
+extern UART_HandleTypeDef huart2;
 
 namespace bsp
 {
@@ -9,13 +12,19 @@ Uart::Uart()
     MX_USART2_UART_Init();
 }
 
-std::span<uint8_t const> Uart::read(std::size_t num_of_bytes)
+Uart::~Uart()
 {
-    return std::span<uint8_t const>();
+    HAL_UART_DeInit(&huart2);
 }
 
-void Uart::write(std::span<uint8_t const> data)
+bool Uart::read(std::span<uint8_t> read_data)
 {
+    return HAL_UART_Receive_DMA(&huart2, read_data.data(), read_data.size()) == HAL_OK;
+}
+
+bool Uart::write(std::span<uint8_t const> data)
+{
+    return HAL_UART_Transmit_DMA(&huart2, data.data(), data.size()) == HAL_OK;
 }
 
 } // namespace bsp
