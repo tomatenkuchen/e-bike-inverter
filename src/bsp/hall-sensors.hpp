@@ -4,11 +4,7 @@
  */
 #pragma once
 
-#include "motor.hpp"
 #include <cstdint>
-#include <mp-units/systems/si/units.h>
-
-using namespace mp_units;
 
 namespace bsp
 {
@@ -16,35 +12,20 @@ namespace bsp
 class HallSensor
 {
   public:
-    HallSensor();
+    /**
+     * @brief should be called on an interrupt (or a poll) that triggers on a state change of one of the hall inputs
+     */
+    void interrupt_handler();
 
     /**
-     * @brief this should be called on an interrupt (or a poll) that triggers on a state change of one of the hall
-     * inputs
-     * @param system_time system time at interrupt
+     * @brief returns the most recent motor sector
      */
-    void interrupt_handler(quantity<si::second, float> system_time);
-
-    /**
-     * @brief Get the motor state
-     *
-     * @param system_time  system time to the time of state polling
-     * @return MotorState motor states
-     */
-    MotorState get_motor_state(quantity<si::second, float> system_time);
+    int8_t get_sector() const;
 
   private:
-    struct Point
-    {
-        uint8_t sector;
-        quantity<si::milli<si::second>, float> timestamp;
-    };
+    int8_t sector = 0;
 
-    Point latest;
-    Point old;
-
-    MotorState motor;
-
-    uint8_t get_sector_from_gpios();
+    int8_t get_sector_from_gpios();
 };
+
 } // namespace bsp
