@@ -23,14 +23,16 @@
             // --- Optional: SVD File for Peripheral Register Views ---
             // "svdFile": "${workspaceFolder}/STM32F407.svd", // **Change to your SVD file path (highly recommended)**
             "device": "STM32G431U5",
-            "runToEntryPoint": "main",
+            "runToEntryPoint": "reset_handler",
 
             // --- Commands to run after GDB connects to the server ---
             "postAttachCommands": [
-                // "monitor halt",
-                // "continue",
+                "monitor halt",
+                "load"
+                "continue",
                 // "monitor flash write ${workspaceFolder}/build/Debug/src/batterycharger 0x8000000",
-            ]
+            ],
+            "showDevDebugOutput": "raw"
         }
     ]
 }

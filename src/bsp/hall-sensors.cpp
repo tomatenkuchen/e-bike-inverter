@@ -7,6 +7,11 @@
 namespace bsp
 {
 
+HallSensor::HallSensor()
+    : sector{get_sector_from_gpios()}
+{
+}
+
 void HallSensor::interrupt_handler()
 {
     sector = get_sector_from_gpios();

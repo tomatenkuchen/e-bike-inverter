@@ -12,6 +12,7 @@ namespace bsp
 class HallSensor
 {
   public:
+    HallSensor();
     /**
      * @brief should be called on an interrupt (or a poll) that triggers on a state change of one of the hall inputs
      */

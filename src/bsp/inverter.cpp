@@ -18,12 +18,12 @@ Inverter::Inverter()
 {
     MX_DMA_Init();
     MX_ADC1_Init();
-    MX_ADC2_Init();
+    // MX_ADC2_Init();
     MX_CORDIC_Init();
     MX_OPAMP1_Init();
     MX_OPAMP2_Init();
     MX_OPAMP3_Init();
-    MX_TIM1_Init();
+    // MX_TIM1_Init();
 
     // start power source
     HAL_GPIO_WritePin(power_on_GPIO_Port, power_on_Pin, GPIO_PIN_SET);
