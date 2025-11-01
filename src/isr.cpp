@@ -204,9 +204,7 @@ void tim1_handler()
 
 void exti_9_5_handler()
 {
-    HAL_GPIO_EXTI_IRQHandler(HALL1_Pin);
-    HAL_GPIO_EXTI_IRQHandler(HALL2_Pin);
-    HAL_GPIO_EXTI_IRQHandler(HALL3_Pin);
+    get_bsp().hall->interrupt_handler();
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -214,14 +212,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if (htim == &htim1)
     {
         get_bsp().inverter->interrupt_handler();
-    }
-}
-
-void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
-{
-    if (GPIO_Pin == HALL1_Pin || GPIO_Pin == HALL2_Pin || GPIO_Pin == HALL3_Pin)
-    {
-        get_bsp().hall->interrupt_handler();
     }
 }
 
