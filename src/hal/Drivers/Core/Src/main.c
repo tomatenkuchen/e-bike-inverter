@@ -40,18 +40,24 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
-CORDIC_HandleTypeDef hcordic;
-CRC_HandleTypeDef hcrc;
 DMA_HandleTypeDef hdma_adc1;
 DMA_HandleTypeDef hdma_adc2;
+
+CORDIC_HandleTypeDef hcordic;
+
+CRC_HandleTypeDef hcrc;
+
 FDCAN_HandleTypeDef hfdcan1;
+
 FMAC_HandleTypeDef hfmac;
+
 TIM_HandleTypeDef htim1;
-TIM_HandleTypeDef htim8;
+
 UART_HandleTypeDef huart2;
+DMA_HandleTypeDef hdma_usart2_rx;
+DMA_HandleTypeDef hdma_usart2_tx;
 
 /* USER CODE BEGIN PV */
 
@@ -61,20 +67,19 @@ UART_HandleTypeDef huart2;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
- void MX_GPIO_Init(void);
- void MX_DMA_Init(void);
- void MX_ADC1_Init(void);
- void MX_ADC2_Init(void);
- void MX_CORDIC_Init(void);
- void MX_CRC_Init(void);
- void MX_FDCAN1_Init(void);
- void MX_FMAC_Init(void);
- void MX_OPAMP1_Init(void);
- void MX_OPAMP2_Init(void);
- void MX_OPAMP3_Init(void);
- void MX_TIM1_Init(void);
- void MX_TIM8_Init(void);
- void MX_USART2_UART_Init(void);
+void MX_GPIO_Init(void);
+void MX_DMA_Init(void);
+void MX_ADC1_Init(void);
+void MX_ADC2_Init(void);
+void MX_CORDIC_Init(void);
+void MX_CRC_Init(void);
+void MX_FDCAN1_Init(void);
+void MX_FMAC_Init(void);
+void MX_OPAMP1_Init(void);
+void MX_OPAMP2_Init(void);
+void MX_OPAMP3_Init(void);
+void MX_TIM1_Init(void);
+void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -124,7 +129,6 @@ int main(void)
   MX_OPAMP2_Init();
   MX_OPAMP3_Init();
   MX_TIM1_Init();
-  MX_TIM8_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
@@ -209,15 +213,15 @@ void MX_ADC1_Init(void)
     hadc1.Init.DataAlign = ADC_DATAALIGN_LEFT;
     hadc1.Init.GainCompensation = 0;
     hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-    hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+    hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
     hadc1.Init.LowPowerAutoWait = DISABLE;
     hadc1.Init.ContinuousConvMode = DISABLE;
     hadc1.Init.NbrOfConversion = 1;
     hadc1.Init.DiscontinuousConvMode = DISABLE;
     hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_TRGO;
     hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
-    hadc1.Init.DMAContinuousRequests = DISABLE;
-    hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+    hadc1.Init.DMAContinuousRequests = ENABLE;
+    hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
     hadc1.Init.OversamplingMode = DISABLE;
     if (HAL_ADC_Init(&hadc1) != HAL_OK)
     {
@@ -226,7 +230,9 @@ void MX_ADC1_Init(void)
 
     /** Configure the ADC multi-mode
      */
-    multimode.Mode = ADC_MODE_INDEPENDENT;
+    multimode.Mode = ADC_DUALMODE_REGSIMULT;
+    multimode.DMAAccessMode = ADC_DMAACCESSMODE_12_10_BITS;
+    multimode.TwoSamplingDelay = ADC_TWOSAMPLINGDELAY_1CYCLE;
     if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
     {
         Error_Handler();
@@ -267,9 +273,7 @@ void MX_ADC2_Init(void)
     hadc2.Init.ContinuousConvMode = DISABLE;
     hadc2.Init.NbrOfConversion = 1;
     hadc2.Init.DiscontinuousConvMode = DISABLE;
-    hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-    hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-    hadc2.Init.DMAContinuousRequests = DISABLE;
+    hadc2.Init.DMAContinuousRequests = ENABLE;
     hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
     hadc2.Init.OversamplingMode = DISABLE;
     if (HAL_ADC_Init(&hadc2) != HAL_OK)
@@ -566,52 +570,6 @@ void MX_TIM1_Init(void)
 }
 
 /**
- * @brief TIM8 Initialization Function
- * @param None
- * @retval None
- */
-void MX_TIM8_Init(void)
-{
-
-    /* USER CODE BEGIN TIM8_Init 0 */
-
-    /* USER CODE END TIM8_Init 0 */
-
-    TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-    TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-    /* USER CODE BEGIN TIM8_Init 1 */
-
-    /* USER CODE END TIM8_Init 1 */
-    htim8.Instance = TIM8;
-    htim8.Init.Prescaler = 0;
-    htim8.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim8.Init.Period = 65535;
-    htim8.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-    htim8.Init.RepetitionCounter = 0;
-    htim8.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-    if (HAL_TIM_Base_Init(&htim8) != HAL_OK)
-    {
-        Error_Handler();
-    }
-    sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-    if (HAL_TIM_ConfigClockSource(&htim8, &sClockSourceConfig) != HAL_OK)
-    {
-        Error_Handler();
-    }
-    sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-    sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
-    sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-    if (HAL_TIMEx_MasterConfigSynchronization(&htim8, &sMasterConfig) != HAL_OK)
-    {
-        Error_Handler();
-    }
-    /* USER CODE BEGIN TIM8_Init 2 */
-
-    /* USER CODE END TIM8_Init 2 */
-}
-
-/**
  * @brief USART2 Initialization Function
  * @param None
  * @retval None
@@ -675,6 +633,12 @@ void MX_DMA_Init(void)
     /* DMA1_Channel2_IRQn interrupt configuration */
     HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
+    /* DMA1_Channel3_IRQn interrupt configuration */
+    HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+    /* DMA1_Channel4_IRQn interrupt configuration */
+    HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
 }
 
 /**
@@ -699,7 +663,7 @@ void MX_GPIO_Init(void)
     HAL_GPIO_WritePin(GPIOC, CAN_TERM_Pin | STATUS_Pin | CAN_SHDN_Pin, GPIO_PIN_RESET);
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(power_on_GPIO_Port, power_on_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(power_on_GPIO_Port, power_on_Pin, GPIO_PIN_SET);
 
     /*Configure GPIO pin Output Level */
     HAL_GPIO_WritePin(GPIO_BEMF_GPIO_Port, GPIO_BEMF_Pin, GPIO_PIN_RESET);
@@ -745,9 +709,13 @@ void MX_GPIO_Init(void)
 
     /*Configure GPIO pins : HALL1_Pin HALL2_Pin HALL3_Pin */
     GPIO_InitStruct.Pin = HALL1_Pin | HALL2_Pin | HALL3_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* EXTI interrupt init*/
+    HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
     /* USER CODE BEGIN MX_GPIO_Init_2 */
 

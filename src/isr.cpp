@@ -1,5 +1,6 @@
 #include "main.h"
 #include "main.hpp"
+#include "stm32g4xx_hal_gpio.h"
 #include "stm32g4xx_hal_tim.h"
 #include <chrono>
 #include <cstdint>
@@ -15,6 +16,8 @@ extern CORDIC_HandleTypeDef hcordic;
 extern CRC_HandleTypeDef hcrc;
 extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_adc2;
+extern DMA_HandleTypeDef hdma_usart2_rx;
+extern DMA_HandleTypeDef hdma_usart2_tx;
 extern FDCAN_HandleTypeDef hfdcan1;
 extern FMAC_HandleTypeDef hfmac;
 extern TIM_HandleTypeDef htim1;
@@ -178,10 +181,32 @@ void dma1_ch2_handler()
     HAL_DMA_IRQHandler(&hdma_adc2);
 }
 
+void dma1_ch3_handler()
+{
+    HAL_DMA_IRQHandler(&hdma_usart2_rx);
+}
+
+void dma1_ch4_handler()
+{
+    HAL_DMA_IRQHandler(&hdma_usart2_tx);
+}
+
 void adc_handler()
 {
     HAL_ADC_IRQHandler(&hadc1);
     HAL_ADC_IRQHandler(&hadc2);
+}
+
+void tim1_handler()
+{
+    HAL_TIM_IRQHandler(&htim1);
+}
+
+void exti_9_5_handler()
+{
+    HAL_GPIO_EXTI_IRQHandler(HALL1_Pin);
+    HAL_GPIO_EXTI_IRQHandler(HALL2_Pin);
+    HAL_GPIO_EXTI_IRQHandler(HALL3_Pin);
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -189,6 +214,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if (htim == &htim1)
     {
         get_bsp().inverter->interrupt_handler();
+    }
+}
+
+void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
+{
+    if (GPIO_Pin == HALL1_Pin || GPIO_Pin == HALL2_Pin || GPIO_Pin == HALL3_Pin)
+    {
+        get_bsp().hall->interrupt_handler();
     }
 }
 
@@ -205,7 +238,11 @@ constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, inte
         a[(int)IsrType::systick] = systick_handler;
         a[(int)IsrType::dma1_channel1] = dma1_ch1_handler;
         a[(int)IsrType::dma1_channel2] = dma1_ch2_handler;
+        a[(int)IsrType::dma1_channel3] = dma1_ch3_handler;
+        a[(int)IsrType::dma1_channel4] = dma1_ch4_handler;
         a[(int)IsrType::adc1_2_] = adc_handler;
+        a[(int)IsrType::tim1_up_tim16] = tim1_handler;
+        a[(int)IsrType::exti9_5] = exti_9_5_handler;
 
         return a;
     }();
