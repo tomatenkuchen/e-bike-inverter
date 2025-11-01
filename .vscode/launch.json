@@ -28,9 +28,7 @@
             // --- Commands to run after GDB connects to the server ---
             "postAttachCommands": [
                 "monitor halt",
-                "load"
-                "continue",
-                // "monitor flash write ${workspaceFolder}/build/Debug/src/batterycharger 0x8000000",
+                "load",
             ],
             "showDevDebugOutput": "raw"
         }
