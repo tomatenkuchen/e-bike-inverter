@@ -8,8 +8,10 @@
 
 using namespace std::chrono_literals;
 
+// system time in milliseconds
 std::chrono::milliseconds system_time = 0ms;
 
+// extern peripheral handles
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern CORDIC_HandleTypeDef hcordic;
@@ -23,6 +25,18 @@ extern FMAC_HandleTypeDef hfmac;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim8;
 extern UART_HandleTypeDef huart2;
+
+// extern init functions
+extern "C" void SystemInit();
+extern "C" void __libc_init_array();
+extern "C" void __libc_fini_array();
+
+// extern ram symbols
+extern uint8_t _sdata;
+extern uint8_t _edata;
+extern uint8_t _sidata;
+extern uint8_t _sbss;
+extern uint8_t _ebss;
 
 namespace
 {
@@ -58,7 +72,7 @@ enum class IsrType
     dma1_channel4,
     dma1_channel5,
     dma1_channel6,
-    adc1_2_ = 3,
+    adc1_2_ = 33,
     usb_hp,
     usb_lp,
     fdcan1_it0,
@@ -87,40 +101,33 @@ enum class IsrType
     tim8_up,
     tim8_trg_com,
     tim8_cc,
-    lptim1_ = 6,
-    spi3_ = 6,
+    lptim1_ = 64,
+    spi3_ = 66,
     uart4,
-    tim6_dac_ = 6,
+    tim6_dac_ = 69,
     tim7,
     dma2_channel1,
     dma2_channel2,
     dma2_channel3,
     dma2_channel4,
     dma2_channel5,
-    ucpd1 = 7,
+    ucpd1 = 78,
     comp1_2_3,
     comp4,
-    crs = 9,
+    crs = 90,
     sai1,
-    fpu = 9,
-    rng = 10,
+    fpu = 96,
+    rng = 105,
     lpuart1,
     i2c3_ev,
     i2c3_er,
     dmamux_ovr,
-    dma2_channel6 = 11,
-    cordic = 11,
+    dma2_channel6 = 112,
+    cordic = 115,
     fma
 };
 
 constexpr uint32_t interrupt_vector_size = 117;
-
-void system_init()
-{
-    SCB->CPACR |= ((3UL << (10 * 2)) | (3UL << (11 * 2))); /* set CP10 and CP11 Full Access */
-
-    // SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
-}
 
 [[noreturn]] void error_handler()
 {
@@ -128,33 +135,33 @@ void system_init()
         ;
 }
 
-} // namespace
-
-extern "C" void __libc_init_array();
-extern "C" void __libc_fini_array();
-extern int main();
-extern uint8_t _sdata;
-extern uint8_t _edata;
-extern uint8_t _sidata;
-extern uint8_t _sbss;
-extern uint8_t _ebss;
-
-extern "C" [[noreturn]] void reset_handler()
+void init_ram()
 {
     std::span const data_ram(&_sdata, &_edata);
     std::span const data_rom(&_sidata, data_ram.size());
     std::span const bss(&_sbss, &_ebss);
 
-    system_init();
-
     if (!data_rom.empty())
     {
         std::copy(data_rom.begin(), data_rom.end(), data_ram.begin());
     }
+
     if (!bss.empty())
     {
         std::ranges::fill(bss, 0);
     }
+}
+
+} // namespace
+
+extern int main();
+
+extern "C" [[noreturn]] void reset_handler()
+{
+
+    SystemInit();
+
+    init_ram();
 
     __libc_init_array();
 

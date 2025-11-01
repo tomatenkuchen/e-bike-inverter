@@ -30,7 +30,7 @@
                 "monitor halt",
                 "load",
             ],
-            "showDevDebugOutput": "raw"
+            // "showDevDebugOutput": "raw"
         }
     ]
 }

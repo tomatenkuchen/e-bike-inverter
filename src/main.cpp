@@ -1,6 +1,6 @@
+#include "main.hpp"
 #include "core.hpp"
 #include "inverter.hpp"
-#include "main.hpp"
 #include "uart-interface.hpp"
 
 BspPointer bspptr;
