@@ -29,6 +29,7 @@ find_program(CMAKE_READELF arm-none-eabi-readelf)
 # find_program(CMAKE_CXX_CPPCHECK cppcheck REQUIRED)
 
 find_package(mp-units REQUIRED)
+find_package(etl REQUIRED)
 
 ###############################################################################
 # cppcheck configuration

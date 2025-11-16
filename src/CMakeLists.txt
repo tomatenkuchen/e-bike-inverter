@@ -17,6 +17,8 @@ add_executable(${CONAN_PROJECT_NAME}.elf
 target_link_libraries(${CONAN_PROJECT_NAME}.elf
   PRIVATE
     libbsp
+    etl::etl
+    mp-units::mp-units
 )
 
 target_include_directories(${CONAN_PROJECT_NAME}.elf
@@ -43,6 +45,8 @@ target_link_options(${CONAN_PROJECT_NAME}.elf
     -T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld
 )
 
+###############################################################################
+# flash file generation
 add_custom_target(${CONAN_PROJECT_NAME}.hex ALL 
   COMMAND ${CMAKE_OBJCOPY} -O ihex
             ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.elf
@@ -64,3 +68,10 @@ add_custom_target(${CONAN_PROJECT_NAME}.readelf ALL
             > ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.readelf
 )
 add_dependencies(${CONAN_PROJECT_NAME}.readelf ${CONAN_PROJECT_NAME}.elf)
+
+add_custom_target(${CONAN_PROJECT_NAME}.objdump ALL 
+  COMMAND ${CMAKE_OBJDUMP} -CD
+            ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.elf
+            > ${CMAKE_CURRENT_BINARY_DIR}/${CONAN_PROJECT_NAME}.objdump
+)
+add_dependencies(${CONAN_PROJECT_NAME}.objdump ${CONAN_PROJECT_NAME}.elf)
