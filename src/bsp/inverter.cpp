@@ -38,18 +38,29 @@ Inverter::~Inverter()
 
 void Inverter::set_voltage(std::array<quantity<si::volt, float>, 3> voltages)
 {
-    TIM_OC_InitTypeDef channel_cfg = {
+    auto const mod_voltages = modulate_outputs(voltages);
+
+    auto const channel_pwm_duty = calc_duty(mod_voltages);
+
+    TIM_OC_InitTypeDef ch1_cfg = {
         .OCMode = TIM_OCMODE_PWM1,
-        .Pulse = static_cast<uint32_t>((voltages[0].number() / 48.0f) * static_cast<float>(htim1.Init.Period)),
+        .Pulse = channel_pwm_duty[0],
         .OCPolarity = TIM_OCPOLARITY_HIGH,
         .OCFastMode = TIM_OCFAST_DISABLE,
     };
-    HAL_TIM_PWM_ConfigChannel(&htim1, &channel_cfg, TIM_CHANNEL_1);
+    auto ch2_cfg = ch1_cfg;
+    ch2_cfg.Pulse = channel_pwm_duty[1];
+    auto ch3_cfg = ch1_cfg;
+    ch3_cfg.Pulse = channel_pwm_duty[2];
+
+    HAL_TIM_PWM_ConfigChannel(&htim1, &ch1_cfg, TIM_CHANNEL_1);
+    HAL_TIM_PWM_ConfigChannel(&htim1, &ch2_cfg, TIM_CHANNEL_2);
+    HAL_TIM_PWM_ConfigChannel(&htim1, &ch3_cfg, TIM_CHANNEL_3);
 }
 
 std::array<quantity<si::ampere, float>, 3> Inverter::get_currents()
 {
-    return {0 * si::volt, 0 * si::volt, 0 * si::volt};
+    return {0.f * si::ampere, 0.f * si::ampere, 0.f * si::ampere};
 }
 
 void Inverter::interrupt_handler()
@@ -67,6 +78,35 @@ void Inverter::interrupt_handler()
 
 void Inverter::measure_inputs()
 {
+}
+
+std::array<quantity<si::volt, float>, 3> Inverter::modulate_outputs(std::array<quantity<si::volt, float>, 3> voltages)
+{
+    std::array<quantity<si::volt, float>, 3> mod_volt;
+
+    // look for minimum voltage in input
+    std::min_element(voltages.begin(), voltages.end());
+    quantity<si::volt, float> v_min = *std::min_element(voltages.begin(), voltages.end());
+
+    // subtract minimum from all voltages
+    for (size_t i = 0; i < mod_volt.size(); i++)
+    {
+        mod_volt[i] = voltages[i] - v_min;
+    }
+
+    return mod_volt;
+}
+
+std::array<uint32_t, 3> Inverter::calc_duty(std::array<quantity<si::volt, float>, 3> voltages)
+{
+    std::array<uint32_t, 3> duty_cycles;
+
+    for (size_t i = 0; i < voltages.size(); i++)
+    {
+        duty_cycles[i] = static_cast<uint32_t>((voltages[i].value() / measurements.vbus) * htim1.Init.Period);
+    }
+
+    return duty_cycles;
 }
 
 } // namespace bsp
