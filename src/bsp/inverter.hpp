@@ -77,8 +77,7 @@ class Inverter
      * @param v_bus bus voltage
      * @return std::array<uint32_t, 3> duty cycles for each phase
      */
-    std::array<uint32_t, 3> calc_duty(std::array<quantity<si::volt, float>, 3> voltages,
-                                      quantity<si::volt, float> v_bus = 48.f * si::volt);
+    std::array<uint32_t, 3> calc_duty(std::array<quantity<si::volt, float>, 3> voltages);
 };
 
 } // namespace bsp
