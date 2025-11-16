@@ -85,7 +85,6 @@ std::array<quantity<si::volt, float>, 3> Inverter::modulate_outputs(std::array<q
     std::array<quantity<si::volt, float>, 3> mod_volt;
 
     // look for minimum voltage in input
-    std::min_element(voltages.begin(), voltages.end());
     quantity<si::volt, float> v_min = *std::min_element(voltages.begin(), voltages.end());
 
     // subtract minimum from all voltages
@@ -99,11 +98,23 @@ std::array<quantity<si::volt, float>, 3> Inverter::modulate_outputs(std::array<q
 
 std::array<uint32_t, 3> Inverter::calc_duty(std::array<quantity<si::volt, float>, 3> voltages)
 {
+    // limit voltage input to vbus
+    for (auto &voltage : voltages)
+    {
+        if (voltage > measurements.vbus)
+        {
+            voltage = measurements.vbus;
+        }
+    }
+
     std::array<uint32_t, 3> duty_cycles;
+
+    auto const vbus_f = measurements.vbus.numerical_value_in(si::volt);
 
     for (size_t i = 0; i < voltages.size(); i++)
     {
-        duty_cycles[i] = static_cast<uint32_t>((voltages[i].value() / measurements.vbus) * htim1.Init.Period);
+        auto const v_f = voltages[i].numerical_value_in(si::volt);
+        duty_cycles[i] = static_cast<uint32_t>(v_f * htim1.Init.Period / vbus_f);
     }
 
     return duty_cycles;
