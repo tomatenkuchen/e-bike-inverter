@@ -50,7 +50,7 @@ class Inverter
     struct Measurements
     {
         quantity<si::volt, float> vbus;
-        quantity<si::degree_celsius, float> temperature;
+        quantity<si::degree_Celsius, float> temperature;
         quantity<si::volt, float> poti;
         std::array<quantity<si::ampere, float>, 3> phase_currents;
     };
