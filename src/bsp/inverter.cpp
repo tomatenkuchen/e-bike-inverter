@@ -8,6 +8,7 @@
 #include <stdexcept>
 
 using namespace mp_units;
+extern TIM_HandleTypeDef htim1;
 
 namespace bsp
 {
@@ -37,10 +38,18 @@ Inverter::~Inverter()
 
 void Inverter::set_voltage(std::array<quantity<si::volt, float>, 3> voltages)
 {
+    TIM_OC_InitTypeDef channel_cfg = {
+        .OCMode = TIM_OCMODE_PWM1,
+        .Pulse = static_cast<uint32_t>((voltages[0].number() / 48.0f) * static_cast<float>(htim1.Init.Period)),
+        .OCPolarity = TIM_OCPOLARITY_HIGH,
+        .OCFastMode = TIM_OCFAST_DISABLE,
+    };
+    HAL_TIM_PWM_ConfigChannel(&htim1, &channel_cfg, TIM_CHANNEL_1);
 }
 
 std::array<quantity<si::ampere, float>, 3> Inverter::get_currents()
 {
+    return {0 * si::volt, 0 * si::volt, 0 * si::volt};
 }
 
 void Inverter::interrupt_handler()

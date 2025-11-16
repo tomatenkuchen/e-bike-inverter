@@ -6,6 +6,7 @@
 #pragma once
 
 #include <array>
+#include <cstdint>
 #include <mp-units/systems/si.h>
 #include <mp-units/systems/si/units.h>
 
@@ -28,6 +29,32 @@ class Inverter
     void interrupt_handler();
 
   private:
+    struct AdcOutput
+    {
+        struct Adc1
+        {
+            uint16_t vbus;
+            uint16_t temperature;
+            uint16_t poti;
+            uint16_t bemf3;
+        };
+        struct Adc2
+        {
+            uint16_t bemf1;
+            uint16_t bemf2;
+        };
+        Adc1 adc1;
+        Adc2 adc2;
+    };
+
+    struct Measurements
+    {
+        quantity<si::volt, float> vbus;
+        quantity<si::degree_celsius, float> temperature;
+        quantity<si::volt, float> poti;
+        std::array<quantity<si::ampere, float>, 3> phase_currents;
+    };
+
     void measure_inputs();
 };
 
