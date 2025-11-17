@@ -1,31 +1,20 @@
+#include "adc.h"
+#include "cordic.h"
+#include "crc.h"
+#include "dma.h"
+#include "fdcan.h"
+#include "fmac.h"
+#include "gpio.h"
 #include "main.h"
 #include "main.hpp"
-#include "stm32g4xx_hal_gpio.h"
-#include "stm32g4xx_hal_tim.h"
 #include "stm32g4xx_it.h"
+#include "tim.h"
+#include "uart.h"
 #include <chrono>
 #include <cstdint>
 #include <span>
 
 using namespace std::chrono_literals;
-
-// system time in milliseconds
-std::chrono::milliseconds system_time = 0ms;
-
-// extern peripheral handles
-extern ADC_HandleTypeDef hadc1;
-extern ADC_HandleTypeDef hadc2;
-extern CORDIC_HandleTypeDef hcordic;
-extern CRC_HandleTypeDef hcrc;
-extern DMA_HandleTypeDef hdma_adc1;
-extern DMA_HandleTypeDef hdma_adc2;
-extern DMA_HandleTypeDef hdma_usart2_rx;
-extern DMA_HandleTypeDef hdma_usart2_tx;
-extern FDCAN_HandleTypeDef hfdcan1;
-extern FMAC_HandleTypeDef hfmac;
-extern TIM_HandleTypeDef htim1;
-extern TIM_HandleTypeDef htim8;
-extern UART_HandleTypeDef huart2;
 
 // extern init functions
 extern "C" void SystemInit();
