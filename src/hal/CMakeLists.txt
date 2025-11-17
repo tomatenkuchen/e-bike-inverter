@@ -54,7 +54,7 @@ add_library(stm32g4-hal STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/main.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/opamp.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/tim.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/uart.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/usart.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/stm32g4xx_it.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/stm32g4xx_hal_msp.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/system_stm32g4xx.c

@@ -9,7 +9,7 @@
 #include "main.hpp"
 #include "stm32g4xx_it.h"
 #include "tim.h"
-#include "uart.h"
+#include "usart.h"
 #include <chrono>
 #include <cstdint>
 #include <span>

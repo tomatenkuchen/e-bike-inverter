@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include "mp-units.hpp"
-#include "mp-units/si/time.hpp"
+#include <mp-units/systems/si.h>
+#include <mp-units/systems/si/units.h>
 
 using namespace mp_units;
 
@@ -22,7 +22,7 @@ class Core
 
     void wait_for_interrupt();
 
-    si::milliseconds get_system_time();
+    si::milli<si::second> get_system_time();
 
   private:
 };

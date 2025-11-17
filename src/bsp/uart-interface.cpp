@@ -1,6 +1,6 @@
 #include "uart-interface.hpp"
 #include "main.h"
-#include "stm32g4xx_hal_uart.h"
+#include "usart.h"
 
 extern UART_HandleTypeDef huart2;
 
