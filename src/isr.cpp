@@ -222,24 +222,40 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
 }
 
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart == &huart2)
+    {
+        get_bsp().uart->tx_interrupt_hander();
+    }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart == &huart2)
+    {
+        get_bsp().uart->rx_interrupt_hander();
+    }
+}
+
 // fill interrupt vector
-__attribute__((section(".isr_vector"))) __attribute__((used)) std::array<void_func_ptr, interrupt_vector_size> const
-    isr_vector_table = [] {
-        std::array<void_func_ptr, interrupt_vector_size> a;
+__attribute__((section(".isr_vector")))
+__attribute__((used)) std::array<void_func_ptr, interrupt_vector_size> const isr_vector_table = [] {
+    std::array<void_func_ptr, interrupt_vector_size> a;
 
-        // default init all vectors with error handler
-        std::ranges::fill(a, error_handler);
+    // default init all vectors with error handler
+    std::ranges::fill(a, error_handler);
 
-        // add handler to address if needed
-        a[(int)IsrType::reset] = reset_handler;
-        a[(int)IsrType::systick] = systick_handler;
-        a[(int)IsrType::dma1_channel1] = dma1_ch1_handler;
-        a[(int)IsrType::dma1_channel2] = dma1_ch2_handler;
-        a[(int)IsrType::dma1_channel3] = dma1_ch3_handler;
-        a[(int)IsrType::dma1_channel4] = dma1_ch4_handler;
-        a[(int)IsrType::adc1_2] = adc_handler;
-        a[(int)IsrType::tim1_up_tim16] = tim1_handler;
-        a[(int)IsrType::exti9_5] = exti_9_5_handler;
+    // add handler to address if needed
+    a[(int)IsrType::reset] = reset_handler;
+    a[(int)IsrType::systick] = systick_handler;
+    a[(int)IsrType::dma1_channel1] = dma1_ch1_handler;
+    a[(int)IsrType::dma1_channel2] = dma1_ch2_handler;
+    a[(int)IsrType::dma1_channel3] = dma1_ch3_handler;
+    a[(int)IsrType::dma1_channel4] = dma1_ch4_handler;
+    a[(int)IsrType::adc1_2] = adc_handler;
+    a[(int)IsrType::tim1_up_tim16] = tim1_handler;
+    a[(int)IsrType::exti9_5] = exti_9_5_handler;
 
-        return a;
-    }();
+    return a;
+}();
