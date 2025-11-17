@@ -1,10 +1,13 @@
 #include "inverter.hpp"
+#include "adc.h"
+#include "cordic.h"
+#include "dma.h"
 #include "main.h"
 #include "mp-units/systems/si.h"
-#include "stm32g4xx_hal_gpio.h"
-#include "stm32g4xx_hal_tim.h"
+#include "mp-units/systems/si/units.h"
+#include "opamp.h"
+#include "tim.h"
 #include <cstdint>
-#include <mp-units/systems/si/units.h>
 #include <stdexcept>
 
 using namespace mp_units;

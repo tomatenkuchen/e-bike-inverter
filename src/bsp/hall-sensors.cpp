@@ -1,6 +1,6 @@
 #include "hall-sensors.hpp"
+#include "gpio.h"
 #include "main.h"
-#include "stm32g4xx_hal_gpio.h"
 #include <numbers>
 #include <stdexcept>
 

@@ -22,7 +22,7 @@ class Core
 
     void wait_for_interrupt();
 
-    si::milli<si::second> get_system_time();
+    quantity<si::milli<si::second>, uint32_t> get_system_time();
 
   private:
 };

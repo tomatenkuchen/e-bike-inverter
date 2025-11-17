@@ -1,10 +1,13 @@
 #include "core.hpp"
+#include "gpio.h"
 #include "main.h"
 #include <array>
 #include <cstdint>
 #include <stdexcept>
 
 using namespace mp_units;
+
+extern "C" void SystemClock_Config();
 
 namespace bsp
 {
@@ -26,9 +29,9 @@ void Core::wait_for_interrupt()
     __WFI();
 }
 
-si::milli<si::second> Core::get_system_time()
+quantity<si::milli<si::second>, uint32_t> Core::get_system_time()
 {
-    return si::milli<si::second>(HAL_GetTick());
+    return HAL_GetTick() * si::milli<si::second>;
 }
 
 } // namespace bsp
