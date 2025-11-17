@@ -223,8 +223,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 }
 
 // fill interrupt vector
-constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, interrupt_vector_size> isr_vector_table =
-    [] {
+__attribute__((section(".isr_vector"))) __attribute__((used)) std::array<void_func_ptr, interrupt_vector_size> const
+    isr_vector_table = [] {
         std::array<void_func_ptr, interrupt_vector_size> a;
 
         // default init all vectors with error handler
