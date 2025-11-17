@@ -2,6 +2,7 @@
 #include "main.hpp"
 #include "stm32g4xx_hal_gpio.h"
 #include "stm32g4xx_hal_tim.h"
+#include "stm32g4xx_it.h"
 #include <chrono>
 #include <cstdint>
 #include <span>
@@ -172,48 +173,6 @@ extern "C" [[noreturn]] void reset_handler()
     error_handler();
 }
 
-void systick_handler()
-{
-    system_time += 1ms;
-    HAL_IncTick();
-}
-
-void dma1_ch1_handler()
-{
-    HAL_DMA_IRQHandler(&hdma_adc1);
-}
-
-void dma1_ch2_handler()
-{
-    HAL_DMA_IRQHandler(&hdma_adc2);
-}
-
-void dma1_ch3_handler()
-{
-    HAL_DMA_IRQHandler(&hdma_usart2_rx);
-}
-
-void dma1_ch4_handler()
-{
-    HAL_DMA_IRQHandler(&hdma_usart2_tx);
-}
-
-void adc_handler()
-{
-    HAL_ADC_IRQHandler(&hadc1);
-    HAL_ADC_IRQHandler(&hadc2);
-}
-
-void tim1_handler()
-{
-    HAL_TIM_IRQHandler(&htim1);
-}
-
-void exti_9_5_handler()
-{
-    get_bsp().hall->interrupt_handler();
-}
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim == &htim1)
@@ -248,14 +207,14 @@ __attribute__((used)) std::array<void_func_ptr, interrupt_vector_size> const isr
 
     // add handler to address if needed
     a[(int)IsrType::reset] = reset_handler;
-    a[(int)IsrType::systick] = systick_handler;
-    a[(int)IsrType::dma1_channel1] = dma1_ch1_handler;
-    a[(int)IsrType::dma1_channel2] = dma1_ch2_handler;
-    a[(int)IsrType::dma1_channel3] = dma1_ch3_handler;
-    a[(int)IsrType::dma1_channel4] = dma1_ch4_handler;
-    a[(int)IsrType::adc1_2] = adc_handler;
-    a[(int)IsrType::tim1_up_tim16] = tim1_handler;
-    a[(int)IsrType::exti9_5] = exti_9_5_handler;
+    a[(int)IsrType::systick] = SysTick_Handler;
+    a[(int)IsrType::dma1_channel1] = DMA1_Channel1_IRQHandler;
+    a[(int)IsrType::dma1_channel2] = DMA1_Channel2_IRQHandler;
+    a[(int)IsrType::dma1_channel3] = DMA1_Channel3_IRQHandler;
+    a[(int)IsrType::dma1_channel4] = DMA1_Channel4_IRQHandler;
+    a[(int)IsrType::adc1_2] = ADC1_2_IRQHandler;
+    a[(int)IsrType::tim1_up_tim16] = TIM1_UP_TIM16_IRQHandler;
+    a[(int)IsrType::exti9_5] = EXTI9_5_IRQHandler;
 
     return a;
 }();

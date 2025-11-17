@@ -1,8 +1,12 @@
 #include "core.hpp"
 #include "main.h"
+#include "mp-units.hpp"
+#include "mp-units/si/time.hpp"
 #include <array>
 #include <cstdint>
 #include <stdexcept>
+
+using namespace mp_units;
 
 namespace bsp
 {
@@ -24,5 +28,9 @@ void Core::wait_for_interrupt()
     __WFI();
 }
 
+si::milliseconds Core::get_system_time()
+{
+    return si::milliseconds(HAL_GetTick());
+}
 
 } // namespace bsp

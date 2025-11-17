@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
- ******************************************************************************
- * @file           : main.h
- * @brief          : Header for main.c file.
- *                   This file contains the common defines of the application.
- ******************************************************************************
- * @attention
- *
- * Copyright (c) 2025 STMicroelectronics.
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************
- */
+  ******************************************************************************
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2025 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -49,27 +49,10 @@ extern "C" {
 
 /* USER CODE END EM */
 
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
-    void SystemClock_Config(void);
-    void MX_GPIO_Init(void);
-    void MX_DMA_Init(void);
-    void MX_ADC1_Init(void);
-    void MX_ADC2_Init(void);
-    void MX_CORDIC_Init(void);
-    void MX_CRC_Init(void);
-    void MX_FDCAN1_Init(void);
-    void MX_FMAC_Init(void);
-    void MX_OPAMP1_Init(void);
-    void MX_OPAMP2_Init(void);
-    void MX_OPAMP3_Init(void);
-    void MX_TIM1_Init(void);
-    void MX_USART2_UART_Init(void);
 
 /* USER CODE END EFP */
 

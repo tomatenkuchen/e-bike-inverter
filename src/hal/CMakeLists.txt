@@ -44,6 +44,18 @@ add_library(stm32g4-hal STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
 
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/main.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/adc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/cordic.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/crc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/dma.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/fdcan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/fmac.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/gpio.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/main.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/opamp.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/tim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/uart.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/stm32g4xx_it.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/stm32g4xx_hal_msp.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/system_stm32g4xx.c
 )

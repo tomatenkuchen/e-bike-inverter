@@ -5,6 +5,11 @@
 
 #pragma once
 
+#include "mp-units.hpp"
+#include "mp-units/si/time.hpp"
+
+using namespace mp_units;
+
 namespace bsp
 {
 
@@ -17,8 +22,9 @@ class Core
 
     void wait_for_interrupt();
 
+    si::milliseconds get_system_time();
+
   private:
-    void clock_config();
 };
 
 } // namespace bsp
