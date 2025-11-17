@@ -72,7 +72,7 @@ enum class IsrType
     dma1_channel4,
     dma1_channel5,
     dma1_channel6,
-    adc1_2_ = 33,
+    adc1_2 = 33,
     usb_hp,
     usb_lp,
     fdcan1_it0,
@@ -237,7 +237,7 @@ constexpr __attribute__((section(".isr_vector"))) std::array<void_func_ptr, inte
         a[(int)IsrType::dma1_channel2] = dma1_ch2_handler;
         a[(int)IsrType::dma1_channel3] = dma1_ch3_handler;
         a[(int)IsrType::dma1_channel4] = dma1_ch4_handler;
-        a[(int)IsrType::adc1_2_] = adc_handler;
+        a[(int)IsrType::adc1_2] = adc_handler;
         a[(int)IsrType::tim1_up_tim16] = tim1_handler;
         a[(int)IsrType::exti9_5] = exti_9_5_handler;
 

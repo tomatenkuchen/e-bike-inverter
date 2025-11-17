@@ -15,17 +15,11 @@ _estack = ORIGIN(RAM) + LENGTH(RAM);
 
 SECTIONS
 {
-  _stext = .;
-
-  /* on arm cortex machines, the first value is always the stack pointer init */
-  .stack_top_ptr (READONLY) :
-  {
-      LONG(_estack);
-  } > FLASH
 
   /* The startup code goes first into FLASH */
   .isr_vector (READONLY) :
   {
+    LONG(_estack);
     KEEP(*(.isr_vector))
     . = ALIGN(4);
   } > FLASH
@@ -34,6 +28,7 @@ SECTIONS
   .text (READONLY) :
   {
     . = ALIGN(4);
+    _stext = .;
     *(.text)           /* .text sections (code) */
     *(.text*)          /* .text* sections (code) */
     *(.glue_7)         /* glue arm to thumb code */
