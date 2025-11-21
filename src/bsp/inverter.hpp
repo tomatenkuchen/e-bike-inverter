@@ -22,10 +22,23 @@ class Inverter
 
     ~Inverter();
 
+    /**
+     * @brief set voltages for the 3 phases
+     *
+     * @param voltages voltages of phase u,v,w
+     */
     void set_voltage(std::array<quantity<si::volt, float>, 3> voltages);
 
+    /**
+     * @brief get measured phase currrents
+     *
+     * @return std::array<quantity<si::ampere, float>, 3>
+     */
     std::array<quantity<si::ampere, float>, 3> get_currents();
 
+    /**
+     * @brief interrupt handler for control loop. it should be processed after adc conversion complete
+     */
     void interrupt_handler();
 
   private:
