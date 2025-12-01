@@ -412,6 +412,14 @@
     [
       "4679b2fb-3ee1-4560-bf60-3ee085e43370",
       "Root"
+    ],
+    [
+      "c7d13d6e-bebd-45a0-80a7-7702da2d199e",
+      "power-supply"
+    ],
+    [
+      "deaad7a1-43b1-44a5-8acb-c2303f4b40ea",
+      "controller"
     ]
   ],
   "text_variables": {}
