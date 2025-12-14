@@ -1468,6 +1468,12 @@
 		(uuid "abef5c2e-b78b-492f-be82-c92252756441")
 	)
 	(junction
+		(at 102.87 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "adab3ae3-e09c-40b6-bf94-554c8db1fd06")
+	)
+	(junction
 		(at 72.39 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1505,6 +1511,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 30.48) (xy 102.87 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2958cc3c-f843-4867-8842-b9911f2d6edd")
+	)
+	(wire
+		(pts
 			(xy 67.31 25.4) (xy 67.31 31.75)
 		)
 		(stroke
@@ -1522,6 +1538,16 @@
 			(type default)
 		)
 		(uuid "325b1832-4f89-4173-9eb8-32871e5973fc")
+	)
+	(wire
+		(pts
+			(xy 102.87 30.48) (xy 270.51 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "392e8428-8ef2-4873-b1c8-6cd5f344de5c")
 	)
 	(wire
 		(pts
@@ -1625,6 +1651,26 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 104.14) (xy 118.11 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "866a6041-5848-460f-b5cd-03dd68d15067")
+	)
+	(wire
+		(pts
+			(xy 102.87 30.48) (xy 102.87 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9462b904-2aa5-4fbd-b6be-5c3d03f4676e")
+	)
+	(wire
+		(pts
 			(xy 115.57 86.36) (xy 118.11 86.36)
 		)
 		(stroke
@@ -1705,6 +1751,16 @@
 	)
 	(wire
 		(pts
+			(xy 118.11 73.66) (xy 102.87 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f86d57df-bea4-4c39-9440-a08ae71df1f2")
+	)
+	(wire
+		(pts
 			(xy 72.39 86.36) (xy 72.39 25.4)
 		)
 		(stroke
@@ -1735,6 +1791,17 @@
 		)
 		(uuid "48653566-1841-48c0-a7b8-a7573564f34c")
 	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 40.64 30.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "58253780-469d-4c2b-b0b3-fe423f09b2f9")
+	)
 	(hierarchical_label "boot_2"
 		(shape input)
 		(at 115.57 96.52 180)
@@ -1756,6 +1823,17 @@
 			(justify right)
 		)
 		(uuid "75a5f402-dd4f-4142-9b47-70e2ab2d90ac")
+	)
+	(hierarchical_label "reset"
+		(shape input)
+		(at 115.57 104.14 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "77f31ec1-93dd-4395-abf9-5083423f9253")
 	)
 	(hierarchical_label "+12V"
 		(shape input)
