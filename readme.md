@@ -1,8 +1,13 @@
-# Power Management Framework for Battery to Motor Power Conversions
+# e-bike electronics for my personal bike
 
-outline
+do not use this if you aren't familiar with electrical systems. batteries, soldering irons and electronics are dangerous in their nature, all together. don't blame me if you hurt yourself.
 
 ## electrical setup
+
+fundamental for this project is the ST Microelectronics demo board [B-G431-ESC1](https://www.st.com/en/evaluation-tools/b-g431b-esc1.html). it's a good bang-for-the-buck starting point for inverter technologies - although i wished they'd used their STSPIN series for this.
+For now this is the center of attention for this project. this will change any time the pcb for using the actual STSPING4 is ready to go.
+
+Follow the instructions given by ST to handle the board and their tooling.
 
 ## APIs
 
@@ -35,5 +40,5 @@ conan build . -pr=stm32g4 -s build_type=Debug -b=missing
 - [x] find datasheets
 - [x] configure cubemx project to fit schematic
 - [x] create minimal compilable c++ project
-- [ ] implement estdlib as dependency
-- [ ] create a board support package (bsp)
+- [x] create a board support package (bsp)
+- [ ] finish pcb
