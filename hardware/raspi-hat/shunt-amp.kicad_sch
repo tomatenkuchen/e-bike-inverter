@@ -1,0 +1,747 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "2897ede1-1f1a-4d2c-bb3b-f13082199b84")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(junction
+		(at 153.67 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7de1746e-bb88-49b6-801c-92516f0707bf")
+	)
+	(junction
+		(at 156.21 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9a113d4e-00fe-4280-b7f3-fb62efc9d666")
+	)
+	(wire
+		(pts
+			(xy 156.21 82.55) (xy 168.91 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06d5dc3a-c789-466f-9b3d-fbe0f64c3415")
+	)
+	(wire
+		(pts
+			(xy 153.67 107.95) (xy 168.91 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d06f8fb-f3dc-4a6c-a0f2-b36141415c68")
+	)
+	(wire
+		(pts
+			(xy 156.21 92.71) (xy 156.21 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20a97e4e-0227-47cf-8747-0685e4e9481f")
+	)
+	(wire
+		(pts
+			(xy 140.97 95.25) (xy 156.21 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a18840d-93ba-4f13-b57d-ed27410b4d6c")
+	)
+	(wire
+		(pts
+			(xy 140.97 69.85) (xy 156.21 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "583388f6-376e-4528-a617-e8479a4d4053")
+	)
+	(wire
+		(pts
+			(xy 140.97 82.55) (xy 143.51 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5ec57d1a-6156-4f04-8ac1-2ece584f91de")
+	)
+	(wire
+		(pts
+			(xy 165.1 101.6) (xy 168.91 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6533aa73-52ff-4623-aadf-aa59ce4565be")
+	)
+	(wire
+		(pts
+			(xy 157.48 101.6) (xy 153.67 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81cca4e4-229c-4570-9e3d-88c40c1a8247")
+	)
+	(wire
+		(pts
+			(xy 151.13 82.55) (xy 156.21 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83b9c1a2-10c5-4736-8e03-42d72e5745a7")
+	)
+	(wire
+		(pts
+			(xy 156.21 82.55) (xy 156.21 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f8bf187-3bc2-492e-bfca-adc652cae5b3")
+	)
+	(wire
+		(pts
+			(xy 151.13 107.95) (xy 153.67 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9da75de0-4002-46d0-97b3-b5dfb2cb4605")
+	)
+	(wire
+		(pts
+			(xy 153.67 101.6) (xy 153.67 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a83911f8-7687-476e-865f-5f0f964d6642")
+	)
+	(wire
+		(pts
+			(xy 140.97 107.95) (xy 143.51 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce44fe11-7566-41c4-a38f-9764dd12e05e")
+	)
+	(wire
+		(pts
+			(xy 156.21 80.01) (xy 156.21 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7c24414-0634-4faa-9812-0b86de4e18aa")
+	)
+	(wire
+		(pts
+			(xy 156.21 72.39) (xy 156.21 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f61a8fc1-1f0a-4335-9722-b5f5e6552505")
+	)
+	(hierarchical_label "OP-"
+		(shape input)
+		(at 168.91 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "385802d3-ecc2-4b71-af02-5e7545dd2e29")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 140.97 95.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3a391542-21f4-482d-a2e4-29a294694444")
+	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 140.97 69.85 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "412d6b26-27d1-4962-a8af-b663d35c6be1")
+	)
+	(hierarchical_label "OP+"
+		(shape input)
+		(at 168.91 82.55 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "464ab0ff-56a1-4959-9c0c-b427a0e4fe83")
+	)
+	(hierarchical_label "shunt_h"
+		(shape input)
+		(at 140.97 82.55 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "71a22368-caba-46b2-9f35-a516a382f2e7")
+	)
+	(hierarchical_label "OPOUT"
+		(shape input)
+		(at 168.91 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c09b0f0c-2d5c-4fe7-bf6d-e5c0e19aea0a")
+	)
+	(hierarchical_label "shunt_l"
+		(shape input)
+		(at 140.97 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c44a0208-66c5-4bd0-851e-99d6ba956a06")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 156.21 76.2 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6d61cfef-71c3-44ed-a69d-ba5f5a89cbba")
+		(property "Reference" "R7"
+			(at 153.924 77.724 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "30k"
+			(at 156.21 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 157.988 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 156.21 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 156.21 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b444ca2d-3cc9-4a7c-ac9c-b6ce2f382e25")
+		)
+		(pin "1"
+			(uuid "e73eb671-2f59-4d5e-8dc6-0fca4acff557")
+		)
+		(instances
+			(project "raspi-hat"
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/298446bc-6a02-45f6-9be2-66ed2bf2bb77"
+					(reference "R12")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/509d9429-f594-4f7e-8650-1645f8d90381"
+					(reference "R7")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/f07deaa3-1c99-40d4-b96c-d045cfbf99d1"
+					(reference "R17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 156.21 88.9 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7ff880d1-858f-4a63-adbf-1546dcc35439")
+		(property "Reference" "R8"
+			(at 153.924 90.424 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "30k"
+			(at 156.21 88.9 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 157.988 88.9 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 156.21 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 156.21 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "efb26c24-547f-4e5e-bb21-7dee33baa9de")
+		)
+		(pin "1"
+			(uuid "9a8cd299-5b5d-4ca1-a5ca-daa91c96a71f")
+		)
+		(instances
+			(project "raspi-hat"
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/298446bc-6a02-45f6-9be2-66ed2bf2bb77"
+					(reference "R13")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/509d9429-f594-4f7e-8650-1645f8d90381"
+					(reference "R8")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/f07deaa3-1c99-40d4-b96c-d045cfbf99d1"
+					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 161.29 101.6 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8375ae5a-21a8-4a74-90ce-3df19d6efe38")
+		(property "Reference" "R9"
+			(at 159.766 99.314 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "15k"
+			(at 161.29 101.6 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 161.29 103.378 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 161.29 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 161.29 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "84d06f7c-4f09-4f6d-82cc-cac4431dbad9")
+		)
+		(pin "1"
+			(uuid "ec2d7216-e2e9-4ae0-ad40-c68621fb0e7f")
+		)
+		(instances
+			(project "raspi-hat"
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/298446bc-6a02-45f6-9be2-66ed2bf2bb77"
+					(reference "R14")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/509d9429-f594-4f7e-8650-1645f8d90381"
+					(reference "R9")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/f07deaa3-1c99-40d4-b96c-d045cfbf99d1"
+					(reference "R19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 147.32 107.95 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bc6477ec-7f2d-4cb3-be32-7ec99b44fbc0")
+		(property "Reference" "R6"
+			(at 145.796 105.664 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k5"
+			(at 147.32 107.95 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 147.32 109.728 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 147.32 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 147.32 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4643ebe0-57aa-4dae-b96c-ac7128189432")
+		)
+		(pin "1"
+			(uuid "4642b7f9-75f9-4348-83c3-5d5576975328")
+		)
+		(instances
+			(project "raspi-hat"
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/298446bc-6a02-45f6-9be2-66ed2bf2bb77"
+					(reference "R11")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/509d9429-f594-4f7e-8650-1645f8d90381"
+					(reference "R6")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/f07deaa3-1c99-40d4-b96c-d045cfbf99d1"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 147.32 82.55 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d07df154-a4c0-4d81-8303-282748b5c915")
+		(property "Reference" "R5"
+			(at 145.796 80.264 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k5"
+			(at 147.32 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 147.32 84.328 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 147.32 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 147.32 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "59e61a53-9542-4da2-b157-b45d25f2e2d7")
+		)
+		(pin "1"
+			(uuid "613d44ca-a9af-4e16-bdd7-805d3d7d6e22")
+		)
+		(instances
+			(project "raspi-hat"
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/298446bc-6a02-45f6-9be2-66ed2bf2bb77"
+					(reference "R10")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/509d9429-f594-4f7e-8650-1645f8d90381"
+					(reference "R5")
+					(unit 1)
+				)
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/deaad7a1-43b1-44a5-8acb-c2303f4b40ea/f07deaa3-1c99-40d4-b96c-d045cfbf99d1"
+					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
