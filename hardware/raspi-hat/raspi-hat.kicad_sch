@@ -223,28 +223,22 @@
 		(uuid "2fc75e2b-c951-4ffd-b97b-b84638b2260e")
 	)
 	(junction
-		(at 50.8 100.33)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4df84e56-0c00-44ad-adbd-1682edb44cf9")
-	)
-	(junction
-		(at 116.84 24.13)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "52c0c2a7-8227-44c6-aa58-46028be58173")
-	)
-	(junction
 		(at 50.8 161.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "665f1089-0d92-4204-b27f-13b1d961b6db")
 	)
 	(junction
-		(at 114.3 19.05)
+		(at 118.11 24.13)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bbab8a3a-cafa-4984-9dff-407a4d8a26c1")
+		(uuid "7181a962-58ed-448a-a34a-06a66b6edfd4")
+	)
+	(junction
+		(at 113.03 19.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b2b2b566-a1fb-432a-ae95-89b056974102")
 	)
 	(junction
 		(at 52.07 21.59)
@@ -257,6 +251,22 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f2504690-1186-43a3-93d5-06f7e550ca34")
+	)
+	(junction
+		(at 115.57 21.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f79abbf5-0e0e-4b25-8f75-564503b97b19")
+	)
+	(wire
+		(pts
+			(xy 113.03 19.05) (xy 276.86 19.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "030ed759-3c2d-4b6c-898b-4c7906a2c1aa")
 	)
 	(wire
 		(pts
@@ -310,16 +320,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 24.13) (xy 276.86 24.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "23e83f19-74a3-4688-870b-8081c1e7ead3")
-	)
-	(wire
-		(pts
 			(xy 52.07 21.59) (xy 52.07 62.23)
 		)
 		(stroke
@@ -330,17 +330,17 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 19.05) (xy 276.86 19.05)
+			(xy 115.57 21.59) (xy 276.86 21.59)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3a58b554-4818-4934-b3a3-7eb5a2d7df31")
+		(uuid "3a2bffc8-61b0-43a6-83ac-34138e458080")
 	)
 	(wire
 		(pts
-			(xy 46.99 24.13) (xy 116.84 24.13)
+			(xy 46.99 24.13) (xy 118.11 24.13)
 		)
 		(stroke
 			(width 0)
@@ -370,7 +370,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 24.13) (xy 116.84 63.5)
+			(xy 118.11 24.13) (xy 118.11 63.5)
 		)
 		(stroke
 			(width 0)
@@ -390,33 +390,13 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 83.82) (xy 69.85 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7e527dab-d7a4-4333-8f19-9f77d7ee7ddd")
-	)
-	(wire
-		(pts
-			(xy 50.8 91.44) (xy 50.8 100.33)
+			(xy 50.8 91.44) (xy 50.8 161.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "8c1d20d6-9d42-4aca-a282-96d39c507637")
-	)
-	(wire
-		(pts
-			(xy 69.85 100.33) (xy 50.8 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d5c40b3-8e45-4ddf-bdd2-8df566701109")
 	)
 	(wire
 		(pts
@@ -430,7 +410,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 21.59) (xy 276.86 21.59)
+			(xy 52.07 21.59) (xy 115.57 21.59)
 		)
 		(stroke
 			(width 0)
@@ -450,13 +430,23 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 19.05) (xy 114.3 19.05)
+			(xy 49.53 19.05) (xy 113.03 19.05)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "a800d4ff-7428-40a7-af09-1730f6e24ce3")
+	)
+	(wire
+		(pts
+			(xy 118.11 24.13) (xy 276.86 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad1806c0-70b3-4dde-837a-4d8895f5ca9e")
 	)
 	(wire
 		(pts
@@ -490,6 +480,16 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 21.59) (xy 115.57 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf4fa451-cfaa-48a5-b7b9-53484daa444c")
+	)
+	(wire
+		(pts
 			(xy 49.53 19.05) (xy 49.53 62.23)
 		)
 		(stroke
@@ -520,7 +520,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 19.05) (xy 114.3 63.5)
+			(xy 113.03 19.05) (xy 113.03 63.5)
 		)
 		(stroke
 			(width 0)
@@ -560,17 +560,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 100.33) (xy 50.8 161.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e769cd4e-a2a3-447c-8c6a-47bcf2572599")
-	)
-	(wire
-		(pts
-			(xy 62.23 83.82) (xy 69.85 83.82)
+			(xy 62.23 83.82) (xy 101.6 83.82)
 		)
 		(stroke
 			(width 0)
@@ -670,17 +660,15 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
-		(at 147.32 74.93 0)
-		(mirror y)
+		(at 147.32 74.93 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6198f14e-97f4-4ab3-9ba9-2d0cfd5939ce")
 		(property "Reference" "J2"
-			(at 148.59 73.6599 0)
+			(at 148.59 76.2001 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -689,7 +677,7 @@
 			)
 		)
 		(property "Value" "Conn_01x03_Pin"
-			(at 148.59 76.1999 0)
+			(at 148.59 73.6601 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -697,7 +685,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_3-G_1x03_P5.00mm_Horizontal"
 			(at 147.32 74.93 0)
 			(effects
 				(font
@@ -929,7 +917,7 @@
 			)
 		)
 		(pin "+3V3" input
-			(at 116.84 63.5 90)
+			(at 118.11 63.5 90)
 			(uuid "f54d14e1-3ad6-447a-bddc-85c616af0d15")
 			(effects
 				(font
@@ -959,7 +947,7 @@
 			)
 		)
 		(pin "+12V" input
-			(at 114.3 63.5 90)
+			(at 113.03 63.5 90)
 			(uuid "f7533fdf-84b3-45c2-ba90-115ad9f5b840")
 			(effects
 				(font
@@ -1026,6 +1014,26 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "+5V" input
+			(at 115.57 63.5 90)
+			(uuid "174f0bb4-c2dd-471b-a508-515b6826bcd5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "power_on" input
+			(at 101.6 83.82 180)
+			(uuid "e10ea5ab-cb07-4f67-8488-e955eef90e9c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances

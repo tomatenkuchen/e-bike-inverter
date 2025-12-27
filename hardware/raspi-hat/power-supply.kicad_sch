@@ -1442,26 +1442,27 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R"
+		(symbol "Jumper:Jumper_2_Open"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
+			(property "Reference" "JP"
+				(at 0 2.794 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "R"
-				(at 0 0 90)
+			(property "Value" "Jumper_2_Open"
+				(at 0 -2.286 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1469,7 +1470,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at -1.778 0 90)
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1486,7 +1487,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Resistor"
+			(property "Description" "Jumper, 2-pole, open"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1495,7 +1496,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "R res resistor"
+			(property "ki_keywords" "Jumper SPST"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1504,7 +1505,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "R_*"
+			(property "ki_fp_filters" "Jumper* TestPoint*2Pads* TestPoint*Bridge*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1513,12 +1514,23 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
+			(symbol "Jumper_2_Open_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
 					(stroke
-						(width 0.254)
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -1526,11 +1538,25 @@
 					)
 				)
 			)
-			(symbol "R_1_1"
+			(symbol "Jumper_2_Open_0_1"
+				(arc
+					(start -1.524 1.27)
+					(mid 0 1.778)
+					(end 1.524 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Open_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1546,9 +1572,9 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1586,6 +1612,12 @@
 		(uuid "6fd84277-b251-4d49-9035-591728684bfb")
 	)
 	(junction
+		(at 34.29 160.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7f74321b-b082-4ff0-9132-4afeaf46d7ce")
+	)
+	(junction
 		(at 74.93 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1604,6 +1636,12 @@
 		(uuid "bd9c8685-7e33-4840-8ce1-e40c089117b0")
 	)
 	(junction
+		(at 34.29 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "da66038a-32d4-4706-9b63-f51031fa9af7")
+	)
+	(junction
 		(at 151.13 160.02)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1617,7 +1655,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 30.48) (xy 107.95 36.83)
+			(xy 107.95 30.48) (xy 107.95 44.45)
 		)
 		(stroke
 			(width 0)
@@ -1644,6 +1682,16 @@
 			(type default)
 		)
 		(uuid "1040f5be-0dd0-467c-8c18-5fbb48c86a9e")
+	)
+	(wire
+		(pts
+			(xy 34.29 81.28) (xy 36.83 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "192b9f8d-a533-45a2-8f31-7666ee7e7b8e")
 	)
 	(wire
 		(pts
@@ -1677,7 +1725,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 30.48) (xy 77.47 36.83)
+			(xy 77.47 30.48) (xy 77.47 44.45)
 		)
 		(stroke
 			(width 0)
@@ -1797,23 +1845,23 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 160.02) (xy 49.53 160.02)
+			(xy 34.29 160.02) (xy 49.53 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76ae5b70-829f-4cc3-bb4e-632c4ae4ef8e")
+	)
+	(wire
+		(pts
+			(xy 29.21 160.02) (xy 34.29 160.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "7ca4e48a-ccd5-439d-8b11-4694361d7d84")
-	)
-	(wire
-		(pts
-			(xy 77.47 44.45) (xy 77.47 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7f1af6d6-3b72-4447-a7d1-a2e50b6e08ac")
 	)
 	(wire
 		(pts
@@ -1877,6 +1925,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 54.61) (xy 77.47 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aaad3772-98b4-4aad-a40b-90981c8e2840")
+	)
+	(wire
+		(pts
 			(xy 40.64 25.4) (xy 67.31 25.4)
 		)
 		(stroke
@@ -1887,7 +1945,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 44.45) (xy 107.95 73.66)
+			(xy 107.95 54.61) (xy 107.95 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1907,6 +1965,16 @@
 	)
 	(wire
 		(pts
+			(xy 34.29 100.33) (xy 34.29 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c88f2355-1cc7-42ec-bb34-d86b91e39ac7")
+	)
+	(wire
+		(pts
 			(xy 62.23 86.36) (xy 72.39 86.36)
 		)
 		(stroke
@@ -1914,6 +1982,16 @@
 			(type default)
 		)
 		(uuid "cb9e0981-96ec-434b-a12a-f8bc18b29f4e")
+	)
+	(wire
+		(pts
+			(xy 34.29 81.28) (xy 34.29 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dac7e286-c98f-4772-9d51-ac3c92b2c4eb")
 	)
 	(wire
 		(pts
@@ -1957,6 +2035,16 @@
 	)
 	(wire
 		(pts
+			(xy 30.48 81.28) (xy 34.29 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f776876d-41a2-43a0-8e8d-139cf4448158")
+	)
+	(wire
+		(pts
 			(xy 72.39 86.36) (xy 72.39 25.4)
 		)
 		(stroke
@@ -1978,7 +2066,7 @@
 	)
 	(hierarchical_label "pwr_on"
 		(shape input)
-		(at 36.83 81.28 180)
+		(at 30.48 81.28 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2110,7 +2198,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape input)
-		(at 41.91 160.02 180)
+		(at 29.21 160.02 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2131,32 +2219,34 @@
 		(uuid "fc73ea16-7780-4d1e-a962-d2443159c736")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 77.47 40.64 180)
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 34.29 95.25 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "02037ffe-0f30-47b4-87d4-dd320b235282")
-		(property "Reference" "R24"
-			(at 80.01 41.656 90)
+		(uuid "1a5d44d0-6d8b-4717-833c-d9e99806fe31")
+		(property "Reference" "JP1"
+			(at 33.274 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "0"
-			(at 77.47 40.64 90)
+		(property "Value" "Jumper_2_Open"
+			(at 35.56 98.298 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 79.248 40.64 90)
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
+			(at 34.29 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2165,7 +2255,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 40.64 0)
+			(at 34.29 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2173,8 +2263,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 77.47 40.64 0)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 34.29 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2183,15 +2273,153 @@
 			)
 		)
 		(pin "2"
-			(uuid "66126b0c-24f8-4631-9900-91121bfd6f65")
+			(uuid "5646660d-4a1e-49d9-902d-94fefa36e947")
 		)
 		(pin "1"
-			(uuid "b5f40a0f-c783-4ec5-8ee7-d62719d9253e")
+			(uuid "939eedc5-750a-44ea-afc3-831b1e378d40")
+		)
+		(instances
+			(project ""
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/c7d13d6e-bebd-45a0-80a7-7702da2d199e"
+					(reference "JP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 77.47 49.53 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "284bf811-d2d5-44e6-80d8-f9ab69c5a5cd")
+		(property "Reference" "JP5"
+			(at 76.454 56.134 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Jumper_2_Open"
+			(at 76.2 46.482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
+			(at 77.47 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 77.47 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 77.47 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e41bd8ad-2045-4a51-82de-3bf958de6994")
+		)
+		(pin "1"
+			(uuid "5978d5bb-5745-40c9-beba-29e7fcda4df2")
 		)
 		(instances
 			(project "raspi-hat"
 				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/c7d13d6e-bebd-45a0-80a7-7702da2d199e"
-					(reference "R24")
+					(reference "JP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 107.95 49.53 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2b46553e-ee25-4f11-b324-4c5215632105")
+		(property "Reference" "JP4"
+			(at 106.934 56.134 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Jumper_2_Open"
+			(at 106.68 46.482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
+			(at 107.95 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 107.95 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 107.95 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "58cb0608-7a76-4f0b-a8bc-09674a64a1ef")
+		)
+		(pin "1"
+			(uuid "9733efe2-c4ae-4b39-b9fa-069763000244")
+		)
+		(instances
+			(project "raspi-hat"
+				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/c7d13d6e-bebd-45a0-80a7-7702da2d199e"
+					(reference "JP4")
 					(unit 1)
 				)
 			)
@@ -2401,73 +2629,6 @@
 			(project "raspi-hat"
 				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/c7d13d6e-bebd-45a0-80a7-7702da2d199e"
 					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 107.95 40.64 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a7c09305-8327-4ffc-9d4c-5a5808b43097")
-		(property "Reference" "R23"
-			(at 110.49 41.656 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0"
-			(at 107.95 40.64 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 109.728 40.64 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 107.95 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 107.95 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "0b428ab3-ddd9-4f26-ad5b-f604c242c7db")
-		)
-		(pin "1"
-			(uuid "197c7383-d622-4ac9-ae0f-29ddf724db58")
-		)
-		(instances
-			(project "raspi-hat"
-				(path "/4679b2fb-3ee1-4560-bf60-3ee085e43370/c7d13d6e-bebd-45a0-80a7-7702da2d199e"
-					(reference "R23")
 					(unit 1)
 				)
 			)
