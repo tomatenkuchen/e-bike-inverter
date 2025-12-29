@@ -5274,6 +5274,16 @@
 		(uuid "54cf70bd-4a1b-473f-8252-7856c6b505e9")
 	)
 	(label "v_mc"
+		(at 396.24 26.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5570deab-8cf2-4009-8a7b-1b139bad67e1")
+	)
+	(label "v_mc"
 		(at 171.45 52.07 180)
 		(effects
 			(font
