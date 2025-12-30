@@ -519,7 +519,7 @@
       "idf": "",
       "netlist": "",
       "plot": "build",
-      "pos_files": "",
+      "pos_files": "build",
       "specctra_dsn": "",
       "step": "",
       "svg": "",

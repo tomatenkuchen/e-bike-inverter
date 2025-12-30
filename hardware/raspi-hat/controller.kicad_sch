@@ -6005,7 +6005,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB3_A_Molex_48393-001"
+		(property "Footprint" "Connector_USB:USB3_A_Receptacle_Wuerth_692122030100"
 			(at 38.1 214.63 0)
 			(effects
 				(font
