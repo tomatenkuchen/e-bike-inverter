@@ -2978,6 +2978,12 @@
 		(uuid "042a1181-0278-46c2-a424-1c7cb6202f88")
 	)
 	(junction
+		(at 50.8 24.13)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0768f0a0-654e-4471-8ec7-9de66da4d235")
+	)
+	(junction
 		(at 223.52 199.39)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3152,12 +3158,6 @@
 		(uuid "99dc1802-d9b0-4b61-8825-94ea735f9849")
 	)
 	(junction
-		(at 35.56 24.13)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a4eb7185-a4f1-4e2d-aa4a-f39ed8f79dfc")
-	)
-	(junction
 		(at 254 26.67)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3285,7 +3285,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.55 134.62) (xy 349.25 134.62)
+			(xy 389.89 134.62) (xy 377.19 134.62)
 		)
 		(stroke
 			(width 0)
@@ -3305,13 +3305,23 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 26.67) (xy 95.25 26.67)
+			(xy 81.28 26.67) (xy 95.25 26.67)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "0fba53ca-51d4-4b60-ade4-8985e77f2d9a")
+	)
+	(wire
+		(pts
+			(xy 50.8 24.13) (xy 396.24 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11045a43-6e01-45e6-82a4-781c13f555d0")
 	)
 	(wire
 		(pts
@@ -3335,7 +3345,7 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 24.13) (xy 35.56 24.13)
+			(xy 30.48 24.13) (xy 50.8 24.13)
 		)
 		(stroke
 			(width 0)
@@ -3545,16 +3555,6 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 207.01) (xy 46.99 190.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "320ff321-c82e-4590-a3c3-84831199eba1")
-	)
-	(wire
-		(pts
 			(xy 77.47 76.2) (xy 86.36 76.2)
 		)
 		(stroke
@@ -3595,7 +3595,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.55 143.51) (xy 349.25 143.51)
+			(xy 389.89 143.51) (xy 377.19 143.51)
 		)
 		(stroke
 			(width 0)
@@ -3645,7 +3645,7 @@
 	)
 	(wire
 		(pts
-			(xy 250.19 176.53) (xy 248.92 176.53)
+			(xy 250.19 173.99) (xy 248.92 173.99)
 		)
 		(stroke
 			(width 0)
@@ -3855,7 +3855,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 180.34) (xy 254 241.3)
+			(xy 254 177.8) (xy 254 241.3)
 		)
 		(stroke
 			(width 0)
@@ -3975,7 +3975,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 172.72) (xy 254 26.67)
+			(xy 254 170.18) (xy 254 26.67)
 		)
 		(stroke
 			(width 0)
@@ -4455,7 +4455,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.55 135.89) (xy 349.25 135.89)
+			(xy 389.89 135.89) (xy 377.19 135.89)
 		)
 		(stroke
 			(width 0)
@@ -4585,16 +4585,6 @@
 	)
 	(wire
 		(pts
-			(xy 35.56 24.13) (xy 396.24 24.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1cd89b1-e121-4d74-9e11-dd0204a91596")
-	)
-	(wire
-		(pts
 			(xy 231.14 21.59) (xy 231.14 58.42)
 		)
 		(stroke
@@ -4615,7 +4605,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 176.53) (xy 248.92 181.61)
+			(xy 248.92 173.99) (xy 248.92 181.61)
 		)
 		(stroke
 			(width 0)
@@ -4715,6 +4705,16 @@
 	)
 	(wire
 		(pts
+			(xy 50.8 207.01) (xy 46.99 207.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5d7682f-0feb-4f59-ac11-8668adcd4909")
+	)
+	(wire
+		(pts
 			(xy 363.22 147.32) (xy 363.22 241.3)
 		)
 		(stroke
@@ -4795,7 +4795,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.55 142.24) (xy 349.25 142.24)
+			(xy 389.89 142.24) (xy 377.19 142.24)
 		)
 		(stroke
 			(width 0)
@@ -4935,7 +4935,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.55 138.43) (xy 349.25 138.43)
+			(xy 389.89 138.43) (xy 377.19 138.43)
 		)
 		(stroke
 			(width 0)
@@ -4972,16 +4972,6 @@
 			(type default)
 		)
 		(uuid "e189c336-8245-4585-895b-89d8e22e4f98")
-	)
-	(wire
-		(pts
-			(xy 46.99 190.5) (xy 35.56 190.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e1f8eda5-49bb-466f-9f94-247ccb1fc74c")
 	)
 	(wire
 		(pts
@@ -5065,7 +5055,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.55 139.7) (xy 349.25 139.7)
+			(xy 389.89 139.7) (xy 377.19 139.7)
 		)
 		(stroke
 			(width 0)
@@ -5095,7 +5085,7 @@
 	)
 	(wire
 		(pts
-			(xy 35.56 190.5) (xy 35.56 24.13)
+			(xy 50.8 24.13) (xy 50.8 207.01)
 		)
 		(stroke
 			(width 0)
@@ -5155,7 +5145,7 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 26.67) (xy 39.37 26.67)
+			(xy 30.48 26.67) (xy 71.12 26.67)
 		)
 		(stroke
 			(width 0)
@@ -5214,12 +5204,12 @@
 		(uuid "1ad87e83-e897-474a-ab57-4645d042138f")
 	)
 	(label "shunt3_h"
-		(at 336.55 142.24 180)
+		(at 389.89 142.24 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "42f7616c-61b4-47b7-8341-59ec2a877797")
 	)
@@ -5294,12 +5284,12 @@
 		(uuid "584bcd9a-07f9-42a8-b620-8cc50b6ed0fa")
 	)
 	(label "shunt2_l"
-		(at 336.55 139.7 180)
+		(at 389.89 139.7 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "6280eb2a-2b05-45f3-bc66-509430434190")
 	)
@@ -5344,12 +5334,12 @@
 		(uuid "86ace0a0-786b-48e7-aca7-4a92e60e7288")
 	)
 	(label "shunt1_l"
-		(at 336.55 135.89 180)
+		(at 389.89 135.89 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "af3f20f7-1c5b-408d-b98f-05b95098912f")
 	)
@@ -5364,22 +5354,22 @@
 		(uuid "ba7444d6-3d01-4b1e-93fd-fa9f85c51b08")
 	)
 	(label "shunt3_l"
-		(at 336.55 143.51 180)
+		(at 389.89 143.51 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "c0b0f764-a44d-4046-a281-94d8dc4e371e")
 	)
 	(label "shunt2_h"
-		(at 336.55 138.43 180)
+		(at 389.89 138.43 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "c79e1681-77c0-45ac-8da8-17938afde12b")
 	)
@@ -5394,12 +5384,12 @@
 		(uuid "cfff72e9-b2d0-44d7-a3e9-42338b132e27")
 	)
 	(label "shunt1_h"
-		(at 336.55 134.62 180)
+		(at 389.89 134.62 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "ef579580-2c92-413b-b894-0196398f64bb")
 	)
@@ -6083,7 +6073,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Open")
-		(at 44.45 26.67 180)
+		(at 76.2 26.67 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6091,7 +6081,7 @@
 		(dnp no)
 		(uuid "77a9ea9b-6c8d-446e-b4d8-e35ca062bc25")
 		(property "Reference" "JP3"
-			(at 38.1 28.194 0)
+			(at 69.85 28.194 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6100,7 +6090,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Open"
-			(at 37.846 30.48 0)
+			(at 69.596 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6109,7 +6099,7 @@
 			)
 		)
 		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
-			(at 44.45 26.67 0)
+			(at 76.2 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6118,7 +6108,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 44.45 26.67 0)
+			(at 76.2 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6127,7 +6117,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, open"
-			(at 44.45 26.67 0)
+			(at 76.2 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6458,7 +6448,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer_Trim")
-		(at 254 176.53 0)
+		(at 254 173.99 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6467,7 +6457,7 @@
 		(dnp no)
 		(uuid "e4185738-e985-4e25-9c28-7b0a7367517e")
 		(property "Reference" "RV1"
-			(at 256.54 175.2599 0)
+			(at 256.54 172.7199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6475,8 +6465,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10k"
-			(at 254 174.498 90)
+		(property "Value" "50k"
+			(at 254 171.958 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6485,7 +6475,7 @@
 			)
 		)
 		(property "Footprint" "Potentiometer_SMD:Potentiometer_Bourns_3224W_Vertical"
-			(at 254 176.53 0)
+			(at 254 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6494,7 +6484,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 254 176.53 0)
+			(at 254 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6503,7 +6493,7 @@
 			)
 		)
 		(property "Description" "Trim-potentiometer"
-			(at 254 176.53 0)
+			(at 254 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7027,63 +7017,63 @@
 			)
 		)
 		(pin "SHUNT1_H" input
-			(at 349.25 134.62 180)
+			(at 377.19 134.62 0)
 			(uuid "c341efe3-842a-4caf-b42e-2b8b6cffbcc1")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "SHUNT1_L" input
-			(at 349.25 135.89 180)
+			(at 377.19 135.89 0)
 			(uuid "62235283-a95d-4054-8b7a-16a07631c700")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "SHUNT2_H" input
-			(at 349.25 138.43 180)
+			(at 377.19 138.43 0)
 			(uuid "f5b06084-d7b7-4f50-9376-daa00e9153c7")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "SHUNT2_L" input
-			(at 349.25 139.7 180)
+			(at 377.19 139.7 0)
 			(uuid "e3cb4947-6581-4eff-b3ce-3ba44ce81e30")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "SHUNT3_H" input
-			(at 349.25 142.24 180)
+			(at 377.19 142.24 0)
 			(uuid "12dbd0dc-1dbf-409b-8498-b401ac287a30")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "SHUNT3_L" input
-			(at 349.25 143.51 180)
+			(at 377.19 143.51 0)
 			(uuid "eff55464-ef5b-4bc3-a65e-6b9cbb3728e7")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(instances

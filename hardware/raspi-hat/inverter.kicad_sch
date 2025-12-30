@@ -958,7 +958,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 93.98) (xy 234.95 93.98)
+			(xy 255.27 93.98) (xy 234.95 93.98)
 		)
 		(stroke
 			(width 0)
@@ -968,7 +968,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 91.44) (xy 193.04 91.44)
+			(xy 255.27 91.44) (xy 193.04 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1168,7 +1168,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 88.9) (xy 153.67 88.9)
+			(xy 255.27 88.9) (xy 153.67 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1240,12 +1240,12 @@
 	)
 	(hierarchical_label "OUT2"
 		(shape input)
-		(at 88.9 91.44 180)
+		(at 255.27 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "0b902d22-0e04-48e1-92cf-08dd33357c4b")
 	)
@@ -1306,12 +1306,12 @@
 	)
 	(hierarchical_label "OUT1"
 		(shape input)
-		(at 88.9 88.9 180)
+		(at 255.27 88.9 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "2ff4c410-9488-46df-911b-2987b7f56df3")
 	)
@@ -1427,12 +1427,12 @@
 	)
 	(hierarchical_label "OUT3"
 		(shape input)
-		(at 88.9 93.98 180)
+		(at 255.27 93.98 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "dab918bc-0ea3-46af-8a5b-0d31647e02ce")
 	)

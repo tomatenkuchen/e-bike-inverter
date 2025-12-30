@@ -2,3 +2,5 @@
 *-backup
 *.kicad_prl
 *-cache
+build/
+*.zip
