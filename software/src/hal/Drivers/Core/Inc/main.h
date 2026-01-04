@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -57,43 +57,18 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define CAN_TERM_Pin GPIO_PIN_14
-#define CAN_TERM_GPIO_Port GPIOC
-#define VBUS_Pin GPIO_PIN_0
-#define VBUS_GPIO_Port GPIOA
-#define BEMF1_Pin GPIO_PIN_4
-#define BEMF1_GPIO_Port GPIOA
-#define BEMF2_Pin GPIO_PIN_4
-#define BEMF2_GPIO_Port GPIOC
-#define BEMF3_Pin GPIO_PIN_11
-#define BEMF3_GPIO_Port GPIOB
-#define POTI_Pin GPIO_PIN_12
-#define POTI_GPIO_Port GPIOB
-#define Temperature_Pin GPIO_PIN_14
-#define Temperature_GPIO_Port GPIOB
-#define STATUS_Pin GPIO_PIN_6
-#define STATUS_GPIO_Port GPIOC
-#define CAN_RX_Pin GPIO_PIN_11
-#define CAN_RX_GPIO_Port GPIOA
-#define power_on_Pin GPIO_PIN_15
-#define power_on_GPIO_Port GPIOA
-#define BUTTON_Pin GPIO_PIN_10
-#define BUTTON_GPIO_Port GPIOC
-#define CAN_SHDN_Pin GPIO_PIN_11
-#define CAN_SHDN_GPIO_Port GPIOC
-#define GPIO_BEMF_Pin GPIO_PIN_5
-#define GPIO_BEMF_GPIO_Port GPIOB
-#define HALL1_Pin GPIO_PIN_6
-#define HALL1_GPIO_Port GPIOB
-#define HALL1_EXTI_IRQn EXTI9_5_IRQn
-#define HALL2_Pin GPIO_PIN_7
-#define HALL2_GPIO_Port GPIOB
-#define HALL2_EXTI_IRQn EXTI9_5_IRQn
-#define HALL3_Pin GPIO_PIN_8
-#define HALL3_GPIO_Port GPIOB
-#define HALL3_EXTI_IRQn EXTI9_5_IRQn
-#define CAN_TX_Pin GPIO_PIN_9
-#define CAN_TX_GPIO_Port GPIOB
+#define ntc_Pin GPIO_PIN_3
+#define ntc_GPIO_Port GPIOC
+#define v_bus_Pin GPIO_PIN_0
+#define v_bus_GPIO_Port GPIOA
+#define current_u_Pin GPIO_PIN_4
+#define current_u_GPIO_Port GPIOA
+#define current_v_Pin GPIO_PIN_4
+#define current_v_GPIO_Port GPIOC
+#define current_w_Pin GPIO_PIN_5
+#define current_w_GPIO_Port GPIOC
+#define spin_enable_Pin GPIO_PIN_7
+#define spin_enable_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 
