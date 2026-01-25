@@ -2,7 +2,6 @@
 #include "cordic.h"
 #include "crc.h"
 #include "dma.h"
-#include "fdcan.h"
 #include "fmac.h"
 #include "gpio.h"
 #include "main.h"
@@ -172,7 +171,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
-    if (huart == &huart2)
+    if (huart == &huart1)
     {
         get_bsp().uart->tx_interrupt_hander();
     }
@@ -180,7 +179,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-    if (huart == &huart2)
+    if (huart == &huart1)
     {
         get_bsp().uart->rx_interrupt_hander();
     }

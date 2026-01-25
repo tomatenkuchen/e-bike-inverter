@@ -25,7 +25,6 @@ add_library(stm32g4-hal STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
@@ -48,7 +47,6 @@ add_library(stm32g4-hal STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/cordic.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/crc.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/dma.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/fdcan.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/fmac.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/gpio.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/Core/Src/main.c

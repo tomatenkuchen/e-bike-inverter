@@ -1,6 +1,6 @@
-#include "main.hpp"
 #include "core.hpp"
 #include "inverter.hpp"
+#include "main.hpp"
 #include "uart-interface.hpp"
 
 BspPointer bspptr;
@@ -20,14 +20,12 @@ int main()
 
     // init coms
     bsp::Uart uart;
-    bsp::Can can;
 
     // init hall sensors
     bsp::HallSensor hall;
 
     // make available to interrupt handlers
     bspptr = BspPointer{
-        .can = &can,
         .core = &core,
         .hall = &hall,
         .inverter = &inverter,

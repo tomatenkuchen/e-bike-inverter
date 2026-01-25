@@ -4,8 +4,6 @@ add_library(libbsp
     ${CMAKE_CURRENT_SOURCE_DIR}/core.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/hall-sensors.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/hall-sensors.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/can-interface.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/can-interface.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/uart-interface.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/uart-interface.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/inverter.hpp

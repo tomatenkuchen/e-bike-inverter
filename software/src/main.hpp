@@ -5,7 +5,6 @@
 
 #pragma once
 
-#include "can-interface.hpp"
 #include "core.hpp"
 #include "hall-sensors.hpp"
 #include "inverter.hpp"
@@ -13,7 +12,6 @@
 
 struct BspPointer
 {
-    bsp::Can *can;
     bsp::Core *core;
     bsp::HallSensor *hall;
     bsp::Inverter *inverter;
