@@ -3747,12 +3747,6 @@
 		(uuid "6c6be3a5-dc10-4288-8742-ef3f8a66e431")
 	)
 	(junction
-		(at 118.11 241.3)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6d294622-f669-4564-b9d6-07e2176b1c5c")
-	)
-	(junction
 		(at 363.22 241.3)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3825,6 +3819,12 @@
 		(uuid "99dc1802-d9b0-4b61-8825-94ea735f9849")
 	)
 	(junction
+		(at 120.65 160.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a0825941-784b-4be7-bae6-464f7aaf0303")
+	)
+	(junction
 		(at 53.34 171.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3879,12 +3879,6 @@
 		(uuid "d341cc75-7a5c-4629-ba94-942fead8ab58")
 	)
 	(junction
-		(at 118.11 160.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d506dbd4-06a4-4018-8c91-901095064a72")
-	)
-	(junction
 		(at 86.36 176.53)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3901,6 +3895,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f2db35d1-3f48-4b6b-858b-32f7f30f373e")
+	)
+	(junction
+		(at 120.65 241.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fcca23c0-9e6c-41ef-ad7e-dfd2c71d628f")
 	)
 	(wire
 		(pts
@@ -4494,6 +4494,16 @@
 	)
 	(wire
 		(pts
+			(xy 120.65 241.3) (xy 149.86 241.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "44e73dd0-3a57-411d-97df-2e46f2a32679")
+	)
+	(wire
+		(pts
 			(xy 156.21 226.06) (xy 156.21 71.12)
 		)
 		(stroke
@@ -4954,16 +4964,6 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 160.02) (xy 118.11 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7afd2c07-3b6e-4442-b3c5-7579be9c38a6")
-	)
-	(wire
-		(pts
 			(xy 383.54 119.38) (xy 387.35 119.38)
 		)
 		(stroke
@@ -5074,7 +5074,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 160.02) (xy 95.25 160.02)
+			(xy 95.25 160.02) (xy 120.65 160.02)
 		)
 		(stroke
 			(width 0)
@@ -5084,7 +5084,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 160.02) (xy 118.11 241.3)
+			(xy 120.65 160.02) (xy 120.65 241.3)
 		)
 		(stroke
 			(width 0)
@@ -5704,16 +5704,6 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 241.3) (xy 149.86 241.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7630c82-be83-4831-ad3c-fc2694794978")
-	)
-	(wire
-		(pts
 			(xy 238.76 85.09) (xy 311.15 85.09)
 		)
 		(stroke
@@ -5934,7 +5924,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 241.3) (xy 118.11 241.3)
+			(xy 83.82 241.3) (xy 120.65 241.3)
 		)
 		(stroke
 			(width 0)
