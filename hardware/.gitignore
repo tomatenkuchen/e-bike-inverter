@@ -4,4 +4,4 @@
 *backups
 *.lck
 *.bak
-
+.history/
